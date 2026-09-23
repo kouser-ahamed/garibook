@@ -1,17 +1,129 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 72" fill="none">
-  <!-- Modern Intercity Sedan SVG -->
-  <path d="M15 52C15 52 24 38 38 36L72 35C82 35 94 40 102 46L108 52H15Z" fill="#0E52FF" opacity="0.15"/>
-  <path d="M12 50C12 47 14 44 18 42L36 34C42 30 52 28 66 28L80 28C92 28 102 34 106 42L110 49C112 52 110 56 106 56H16C13 56 12 53 12 50Z" fill="currentColor"/>
-  <path d="M38 34L48 20C50 17 54 16 58 16H76C81 16 85 18 87 22L94 34H38Z" fill="#0E52FF"/>
-  <!-- Windows -->
-  <path d="M56 20H72C75 20 78 22 79 25L84 32H56V20Z" fill="#FFFFFF" opacity="0.85"/>
-  <path d="M42 32L51 21C52 20 53 20 54 20V32H42Z" fill="#FFFFFF" opacity="0.85"/>
-  <!-- Wheels -->
-  <circle cx="32" cy="52" r="10" fill="#121212"/>
-  <circle cx="32" cy="52" r="5" fill="#FFFFFF"/>
-  <circle cx="90" cy="52" r="10" fill="#121212"/>
-  <circle cx="90" cy="52" r="5" fill="#FFFFFF"/>
-  <!-- Headlights & tail -->
-  <path d="M107 46C109 46 111 48 111 50H105C105 48 106 46 107 46Z" fill="#FDD300"/>
-  <path d="M12 47C12 45 13 44 15 44V49H13C12 49 12 48 12 47Z" fill="#FF4D4F"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1310 660" width="100%" height="auto" fill="none" style="shape-rendering: geometricPrecision;">
+  <defs>
+    <!-- Suitcase soft shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Ground Shadows -->
+  <ellipse cx="630" cy="530" rx="460" ry="22" fill="#000000" opacity="0.16"/>
+  <ellipse cx="400" cy="565" rx="140" ry="12" fill="#000000" opacity="0.22"/>
+
+  <!-- CAR -->
+  <g id="car">
+    <!-- Amber Taillight -->
+    <path d="M 165 240 C 185 240 210 255 210 285 L 165 285 Z" fill="#FFC107"/>
+
+    <!-- Left/Rear Wheel -->
+    <g transform="translate(235, 435)">
+      <circle cx="0" cy="0" r="62" fill="#263238"/>
+      <circle cx="0" cy="0" r="44" fill="#B0BEC5"/>
+      <circle cx="0" cy="0" r="32" fill="#78909C"/>
+      <circle cx="0" cy="0" r="16" fill="#37474F"/>
+      <!-- Spokes -->
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#ECEFF1" stroke-width="3"/>
+      <line x1="0" y1="-30" x2="0" y2="30" stroke="#ECEFF1" stroke-width="3"/>
+    </g>
+
+    <!-- Center/Front-Left Wheel -->
+    <g transform="translate(615, 435)">
+      <circle cx="0" cy="0" r="62" fill="#263238"/>
+      <circle cx="0" cy="0" r="44" fill="#B0BEC5"/>
+      <circle cx="0" cy="0" r="32" fill="#78909C"/>
+      <circle cx="0" cy="0" r="16" fill="#37474F"/>
+      <!-- Spokes -->
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#ECEFF1" stroke-width="3"/>
+      <line x1="0" y1="-30" x2="0" y2="30" stroke="#ECEFF1" stroke-width="3"/>
+    </g>
+
+    <!-- Front-Right Wheel (tilted perspective under bumper) -->
+    <g transform="translate(980, 485)">
+      <ellipse cx="0" cy="0" rx="55" ry="24" fill="#263238"/>
+      <ellipse cx="0" cy="0" rx="36" ry="14" fill="#455A64"/>
+    </g>
+
+    <!-- Main Blue Car Chassis -->
+    <path d="
+      M 165 270
+      C 160 215 250 120 440 120
+      C 600 120 750 160 890 230
+      L 1040 310
+      C 1070 330 1090 355 1070 375
+      C 1040 395 860 440 850 440
+      L 680 440
+      C 675 340 555 340 550 440
+      L 300 440
+      C 295 340 175 340 170 440
+      L 160 340
+      Z
+    " fill="#0E52FF"/>
+
+    <!-- Aerodynamic Roof & Hood Highlight -->
+    <path d="
+      M 440 124
+      C 590 124 740 165 870 232
+      L 1030 312
+      C 970 325 800 270 600 235
+      C 460 210 320 220 250 240
+      C 300 165 370 124 440 124 Z
+    " fill="#2979FF"/>
+
+    <!-- Windows (Soft Ice Blue) -->
+    <!-- Rear Door Window -->
+    <path d="M 270 230 C 330 155 420 140 490 140 L 490 220 L 285 230 Z" fill="#C1ECFB"/>
+    <!-- Windshield -->
+    <path d="M 515 140 C 600 140 705 175 865 235 L 850 245 C 710 215 580 215 515 220 Z" fill="#C1ECFB"/>
+    <!-- Front Side Window -->
+    <path d="M 515 150 L 670 185 C 690 205 700 220 705 225 L 515 225 Z" fill="#D4F2FC"/>
+
+    <!-- Side Mirror -->
+    <ellipse cx="510" cy="220" rx="20" ry="14" fill="#0E52FF"/>
+    <ellipse cx="508" cy="220" rx="15" ry="9" fill="#2979FF"/>
+
+    <!-- Headlight (Curved aerodynamic wrap) -->
+    <path d="M 660 300 C 760 320 830 345 845 355 C 775 365 720 360 660 340 Z" fill="#D4F2FC"/>
+    <path d="M 685 312 C 755 328 805 345 815 352 C 765 356 720 352 680 338 Z" fill="#FFFFFF"/>
+
+    <!-- Front Grille (Black hexagonal texture) -->
+    <path d="M 850 335 L 1055 340 C 1070 355 1060 380 1040 390 L 845 385 Z" fill="#263238"/>
+    <!-- Gold Emblemed Badge -->
+    <polygon points="950,344 966,350 950,356 934,350" fill="#FFEA00"/>
+
+    <!-- Front Bumper Chin / Air Dam -->
+    <path d="M 780 435 L 1060 435 C 1070 442 1050 452 1030 452 L 780 445 Z" fill="#1F2937"/>
+  </g>
+
+  <!-- YELLOW SUITCASE (Foreground) -->
+  <g id="suitcase" filter="url(#shadow)">
+    <!-- Telescopic Aluminum Trolley Handles -->
+    <rect x="365" y="185" width="14" height="65" fill="#455A64" rx="3"/>
+    <rect x="425" y="185" width="14" height="65" fill="#455A64" rx="3"/>
+    <!-- Top Grip Bar -->
+    <rect x="345" y="180" width="114" height="26" rx="8" fill="#37474F"/>
+    <rect x="365" y="190" width="74" height="16" rx="4" fill="#ECEFF1"/>
+
+    <!-- Main Suitcase Polycarbonate Shell -->
+    <rect x="288" y="240" width="228" height="285" rx="40" fill="#FFEA00"/>
+
+    <!-- 4 Vertical Molded Ridges -->
+    <rect x="330" y="270" width="16" height="225" rx="8" fill="#FDD835"/>
+    <rect x="368" y="270" width="16" height="225" rx="8" fill="#FDD835"/>
+    <rect x="406" y="270" width="16" height="225" rx="8" fill="#FDD835"/>
+    <rect x="444" y="270" width="16" height="225" rx="8" fill="#FDD835"/>
+
+    <!-- Glossy Inner Rim Highlight -->
+    <rect x="292" y="244" width="220" height="277" rx="36" fill="none" stroke="#FFF59D" stroke-width="4" opacity="0.65"/>
+
+    <!-- Dual Spinner Wheels -->
+    <!-- Left Castor Wheel -->
+    <path d="M 312 522 L 332 522 L 328 540 L 316 540 Z" fill="#37474F"/>
+    <ellipse cx="322" cy="546" rx="14" ry="16" fill="#212121"/>
+    <circle cx="322" cy="546" r="6" fill="#B0BEC5"/>
+
+    <!-- Right Castor Wheel -->
+    <path d="M 472 522 L 492 522 L 488 540 L 476 540 Z" fill="#37474F"/>
+    <ellipse cx="482" cy="546" rx="14" ry="16" fill="#212121"/>
+    <circle cx="482" cy="546" r="6" fill="#B0BEC5"/>
+  </g>
 </svg>
