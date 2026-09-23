@@ -83,114 +83,120 @@ export default function Services() {
   );
 
   return (
-    <section className="py-16 max-w-7xl mx-auto px-6 lg:px-8" id="services">
-      {/* Category Pills & Heading */}
-      <p className="text-xl sm:text-2xl font-black text-slate-900 mb-4">Our Services</p>
-      <div className="flex flex-wrap items-center gap-3 mb-8" role="tablist">
-        {tabs.map((tab) => {
-          const isTabActive = activeTab === tab.id;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${isTabActive
-                  ? 'bg-[#0052fe] text-white shadow-md shadow-blue-500/25'
-                  : 'bg-gray-100 text-slate-700 hover:bg-gray-200'
-                }`}
-              onClick={() => {
-                setActiveTab(tab.id);
-                if (tab.id === 'rides') setActiveId('intercity');
-              }}
+    <section className="w-full bg-white py-16 sm:py-20" id="services">
+      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
+        {/* Top Section Header */}
+        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-[1.12] mb-5">
+          Our Services
+        </h2>
+
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8" role="tablist">
+          {tabs.map((tab) => {
+            const isTabActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                className={`px-6 sm:px-7 py-2.5 sm:py-3 rounded-2xl text-sm sm:text-base font-bold transition-all cursor-pointer ${isTabActive
+                    ? 'bg-[#0052fe] text-white shadow-sm'
+                    : 'bg-[#eaedf0] text-slate-700 hover:bg-slate-200'
+                  }`}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  if (tab.id === 'rides') setActiveId('intercity');
+                }}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Tab 1: Rides Content */}
+        {activeTab === 'rides' && (
+          <div className="tab-pane-fade animate-modalPop">
+            <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-[1.12] mb-10">
+              Every Ride <br /> One Platform
+            </h3>
+
+            {/* 4 Cards Grid */}
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+              onMouseLeave={() => setActiveId('intercity')}
             >
-              {tab.label}
-            </button>
-          );
-        })}
-      </div>
+              {services.map((item) => {
+                const isActive = activeId === item.id;
+                return (
+                  <div
+                    key={item.id}
+                    onMouseEnter={() => setActiveId(item.id)}
+                    onClick={() => setActiveId(item.id)}
+                    className={`group relative overflow-hidden rounded-2xl p-6 min-h-[310px] flex flex-col justify-between transition-all duration-300 cursor-pointer ${isActive
+                        ? 'bg-[#0052fe] shadow-xl shadow-blue-500/20 -translate-y-1.5'
+                        : 'bg-[#f8fafc] hover:bg-white hover:shadow-lg border border-slate-100 hover:-translate-y-1'
+                      }`}
+                  >
+                    {/* Top Car Graphic Area */}
+                    <div className="relative w-full h-24 flex items-center overflow-visible">
+                      {/* Extended White Pocket Notch on the left */}
+                      <div
+                        className={`absolute -left-6 top-1/2 -translate-y-1/2 h-16 w-32 bg-white rounded-r-2xl transition-all duration-300 pointer-events-none z-10 ${isActive
+                            ? "opacity-100 scale-x-100 origin-left"
+                            : "opacity-0 scale-x-0 origin-left"
+                          }`}
+                      />
 
-      {/* Tab 1: Rides Content */}
-      {activeTab === 'rides' && (
-        <div className="tab-pane-fade animate-modalPop">
-          <h3 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight mb-10 tracking-tight">
-            Every Ride <br /> One Platform
-          </h3>
+                      {/* Car Illustration */}
+                      <div
+                        className={`relative z-20 transition-transform duration-300 ease-out ${isActive ? "translate-x-5" : "translate-x-0"
+                          }`}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="h-16 w-auto object-contain select-none"
+                        />
+                      </div>
+                    </div>
 
-          {/* 4 Cards Grid */}
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            onMouseLeave={() => setActiveId('intercity')}
-          >
-            {services.map((item) => {
-              const isActive = activeId === item.id;
-              return (
-                <div
-                  key={item.id}
-                  onMouseEnter={() => setActiveId(item.id)}
-                  onClick={() => setActiveId(item.id)}
-                  className={`group relative overflow-hidden rounded-2xl p-6 min-h-[310px] flex flex-col justify-between transition-all duration-300 cursor-pointer ${isActive
-                      ? 'bg-[#0052fe] shadow-xl shadow-blue-500/20 -translate-y-1.5'
-                      : 'bg-[#f8fafc] hover:bg-white hover:shadow-lg border border-slate-100 hover:-translate-y-1'
-                    }`}
-                >
-                  {/* Top Car Graphic Area */}
-                  <div className="relative w-full h-24 flex items-center overflow-visible">
-                    {/* Extended White Pocket Notch on the left */}
+                    {/* Text Content */}
+                    <div className="mt-6 z-20">
+                      <h4
+                        className={`text-xl font-bold mb-2 transition-colors duration-200 ${isActive ? 'text-white' : 'text-slate-900'
+                          }`}
+                      >
+                        {item.title}
+                      </h4>
+                      <p
+                        className={`text-sm leading-relaxed transition-colors duration-200 ${isActive ? 'text-white/90' : 'text-slate-500'
+                          }`}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
+
+                    {/* Bottom Accent Bar */}
                     <div
-                      className={`absolute -left-6 top-1/2 -translate-y-1/2 h-16 w-32 bg-white rounded-r-2xl transition-all duration-300 pointer-events-none z-10 ${isActive
-                          ? "opacity-100 scale-x-100 origin-left"
-                          : "opacity-0 scale-x-0 origin-left"
+                      className={`absolute bottom-0 left-0 h-1.5 transition-all duration-300 ${isActive ? 'w-full bg-[#facc15]' : 'w-0 bg-transparent'
                         }`}
                     />
-
-                    {/* Car Illustration */}
-                    <div
-                      className={`relative z-20 transition-transform duration-300 ease-out ${isActive ? "translate-x-5" : "translate-x-0"
-                        }`}
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="h-16 w-auto object-contain select-none"
-                      />
-                    </div>
                   </div>
-
-                  {/* Text Content */}
-                  <div className="mt-6 z-20">
-                    <h4
-                      className={`text-xl font-bold mb-2 transition-colors duration-200 ${isActive ? 'text-white' : 'text-slate-900'
-                        }`}
-                    >
-                      {item.title}
-                    </h4>
-                    <p
-                      className={`text-sm leading-relaxed transition-colors duration-200 ${isActive ? 'text-white/90' : 'text-slate-500'
-                        }`}
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  {/* Bottom Accent Bar */}
-                  <div
-                    className={`absolute bottom-0 left-0 h-1.5 transition-all duration-300 ${isActive ? 'w-full bg-[#facc15]' : 'w-0 bg-transparent'
-                      }`}
-                  />
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Tab 2: Garibook Business */}
-      {activeTab === 'business' && renderServiceDetail(business)}
+        {/* Tab 2: Garibook Business */}
+        {activeTab === 'business' && renderServiceDetail(business)}
 
-      {/* Tab 3: Garibook Club */}
-      {activeTab === 'club' && renderServiceDetail(club)}
+        {/* Tab 3: Garibook Club */}
+        {activeTab === 'club' && renderServiceDetail(club)}
 
-      {/* Tab 4: VMS (Vehicle Management System) */}
-      {activeTab === 'vms' && renderServiceDetail(vms)}
+        {/* Tab 4: VMS (Vehicle Management System) */}
+        {activeTab === 'vms' && renderServiceDetail(vms)}
+      </div>
     </section>
   );
 }
