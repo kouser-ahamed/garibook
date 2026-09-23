@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 60" fill="none">
+  <!-- Soft ground shadow under car -->
+  <ellipse cx="70" cy="54" rx="60" ry="4" fill="#001850" opacity="0.4" />
+  
+  <!-- Car Body Main (White Luxury Sedan) -->
+  <path d="M12 42C12 39 14 36 18 34L36 26C42 22 54 20 72 20L96 20C108 20 120 25 125 33L132 40C135 43 134 47 130 47H16C13 47 12 45 12 42Z" fill="#FFFFFF" />
+  
+  <!-- Sleek aerodynamic accent curve & bumper -->
+  <path d="M14 43L132 43C130 47 125 48 120 48H20C15 48 14 46 14 43Z" fill="#E2E8F0" />
+  <path d="M22 36L126 36" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round" />
+
+  <!-- Car Roof & Windows (Tinted Glass) -->
+  <path d="M42 26L54 13C56 10 60 9 65 9H94C99 9 104 11 107 15L118 26H42Z" fill="#1E293B" />
+  <!-- Windshield reflection -->
+  <path d="M64 12H90C93 12 95 13 97 16L104 24H64V12Z" fill="#38BDF8" opacity="0.35" />
+  <path d="M47 24L56 14C57 13 58 12 60 12V24H47Z" fill="#38BDF8" opacity="0.3" />
+  <!-- Window B-Pillar -->
+  <rect x="76" y="10" width="3" height="15" fill="#0F172A" />
+
+  <!-- Headlight (Gleaming yellow-white LED) -->
+  <path d="M126 36C130 37 132 39 133 41H124C124 39 125 37 126 36Z" fill="#FDE047" />
+  <ellipse cx="134" cy="40" rx="3" ry="1.5" fill="#FEF08A" opacity="0.9" />
+
+  <!-- Taillight (Red LED) -->
+  <path d="M13 36C12 37 12 38 12 40H16V36H13Z" fill="#EF4444" />
+
+  <!-- Front Wheel Well & Alloy Wheel -->
+  <circle cx="106" cy="46" r="11" fill="#0F172A" />
+  <circle cx="106" cy="46" r="7.5" fill="#94A3B8" />
+  <circle cx="106" cy="46" r="4.5" fill="#E2E8F0" />
+  <circle cx="106" cy="46" r="2" fill="#0F172A" />
+  <!-- Rim Spokes -->
+  <line x1="106" y1="39" x2="106" y2="53" stroke="#475569" stroke-width="1.2" />
+  <line x1="99" y1="46" x2="113" y2="46" stroke="#475569" stroke-width="1.2" />
+
+  <!-- Rear Wheel Well & Alloy Wheel -->
+  <circle cx="34" cy="46" r="11" fill="#0F172A" />
+  <circle cx="34" cy="46" r="7.5" fill="#94A3B8" />
+  <circle cx="34" cy="46" r="4.5" fill="#E2E8F0" />
+  <circle cx="34" cy="46" r="2" fill="#0F172A" />
+  <!-- Rim Spokes -->
+  <line x1="34" y1="39" x2="34" y2="53" stroke="#475569" stroke-width="1.2" />
+  <line x1="27" y1="46" x2="41" y2="46" stroke="#475569" stroke-width="1.2" />
+
+  <!-- Side Mirror -->
+  <path d="M60 21C58 21 57 22 57 23C57 24 59 25 61 25H64V21H60Z" fill="#E2E8F0" />
+</svg>

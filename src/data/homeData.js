@@ -1,13 +1,12 @@
 export const homeData = {
   hero: {
     typingPhrases: [
-      "Best Car Rental in Bangladesh",
-      "City to City Ride Sharing",
-      "Airport Pick & Drop Service",
-      "0% Commission, 100% Freedom"
+      "Assurance of Effortless Travel",
+      "Luxury Trips with Comfort",
+      "Your Journey Starts Here..."
     ],
     subtitle:
-      "Choose your city, pick your car and enjoy the journey with Garibook’s best drivers.",
+      "Choose your city, pick your car and enjoy the journey with Garibook's best drivers.",
     ctaText: "Download App",
     ctaLink: "#download-app"
   },
@@ -15,36 +14,40 @@ export const homeData = {
   booking: {
     cars: [
       {
-        id: "sedan",
-        name: "Sedan (Premio / Allion / Axio)",
-        category: "Sedan",
+        id: "sedan-premium",
+        name: "Sedan Premium",
         seats: 4,
         luggage: "2 Bags",
-        description: "Comfortable AC sedan for city & intercity travel"
+        description: "Premium executive sedan with extra legroom & comfort",
+        icon: "/assets/cars/sedan_premium.svg",
+        badge: "Luxury"
       },
       {
-        id: "microbus",
-        name: "Microbus (Noah / Voxy / Esquire)",
-        category: "Microbus",
+        id: "sedan",
+        name: "Sedan",
+        seats: 4,
+        luggage: "2 Bags",
+        description: "Comfortable standard AC sedan for city & highway",
+        icon: "/assets/cars/sedan.svg",
+        badge: "Economy"
+      },
+      {
+        id: "noah",
+        name: "Noah",
         seats: 7,
         luggage: "4 Bags",
-        description: "Spacious multi-seater for family & group travel"
+        description: "Spacious multi-seater microbus for family & group travel",
+        icon: "/assets/cars/noah.svg",
+        badge: "Family"
       },
       {
         id: "hiace",
-        name: "Hiace (Grand Cabin / GL)",
-        category: "Van",
+        name: "HiAce",
         seats: 11,
         luggage: "6 Bags",
-        description: "High capacity van for long group tours"
-      },
-      {
-        id: "suv",
-        name: "SUV / Prado (Harrier / Fortuner)",
-        category: "Luxury SUV",
-        seats: 5,
-        luggage: "3 Bags",
-        description: "Premium executive ride with high road clearance"
+        description: "High-capacity passenger van for group tours & events",
+        icon: "/assets/cars/hiace.svg",
+        badge: "Large Group"
       }
     ],
 
@@ -69,23 +72,67 @@ export const homeData = {
 
     airports: [
       {
+        id: "dac",
         code: "DAC",
         name: "Hazrat Shahjalal International Airport, Dhaka",
+        nameEn: "Hazrat Shahjalal International Airport, Dhaka",
+        nameBn: "হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দর, ঢাকা",
         terminal: "Terminal 1 & 2"
       },
       {
+        id: "cgp",
         code: "CGP",
-        name: "Shah Amanat International Airport, Chittagong",
+        name: "Shah Amanat International Airport, Chattogram",
+        nameEn: "Shah Amanat International Airport, Chattogram",
+        nameBn: "শাহ আমানত আন্তর্জাতিক বিমানবন্দর, চট্টগ্রাম",
         terminal: "Main Terminal"
       },
       {
+        id: "zyl",
         code: "ZYL",
         name: "Osmani International Airport, Sylhet",
+        nameEn: "Osmani International Airport, Sylhet",
+        nameBn: "ওসমানী আন্তর্জাতিক বিমানবন্দর, সিলেট",
         terminal: "Main Terminal"
       },
       {
+        id: "cxb",
         code: "CXB",
-        name: "Cox's Bazar Domestic Airport",
+        name: "Cox's Bazar Airport, Cox's Bazar",
+        nameEn: "Cox's Bazar Airport, Cox's Bazar",
+        nameBn: "কক্সবাজার বিমানবন্দর",
+        terminal: "Domestic Terminal"
+      },
+      {
+        id: "spd",
+        code: "SPD",
+        name: "Saidpur Airport, Nilphamari",
+        nameEn: "Saidpur Airport, Nilphamari",
+        nameBn: "সৈয়দপুর বিমানবন্দর",
+        terminal: "Domestic Terminal"
+      },
+      {
+        id: "jsr",
+        code: "JSR",
+        name: "Jashore Airport, Jashore",
+        nameEn: "Jashore Airport, Jashore",
+        nameBn: "যশোর বিমানবন্দর",
+        terminal: "Domestic Terminal"
+      },
+      {
+        id: "rjh",
+        code: "RJH",
+        name: "Shah Makhdum Airport, Rajshahi",
+        nameEn: "Shah Makhdum Airport, Rajshahi",
+        nameBn: "শাহ মখদুম বিমানবন্দর, রাজশাহী",
+        terminal: "Domestic Terminal"
+      },
+      {
+        id: "bzr",
+        code: "BZR",
+        name: "Barishal Airport, Barishal",
+        nameEn: "Barishal Airport, Barishal",
+        nameBn: "বরিশাল বিমানবন্দর",
         terminal: "Domestic Terminal"
       }
     ]
@@ -93,27 +140,27 @@ export const homeData = {
 
   statistics: [
     {
-      targetNumber: 100000,
+      targetNumber: 300000,
       suffix: "+",
       label: "Trip Requests",
-      display: "100K+"
+      display: "300,000+"
     },
     {
-      targetNumber: 50000,
+      targetNumber: 850000,
       suffix: "+",
       label: "Total Customers",
-      display: "50K+"
+      display: "850,000+"
     },
     {
-      targetNumber: 10000,
+      targetNumber: 35000,
       suffix: "+",
       label: "Active Drivers",
-      display: "10K+"
+      display: "35,000+"
     },
     {
       targetNumber: 64,
       suffix: "",
-      label: "Districts Covered",
+      label: "District Covered",
       display: "64"
     }
   ],

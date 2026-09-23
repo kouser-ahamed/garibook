@@ -6,7 +6,7 @@ import { homeData } from '../../data/homeData';
 export default function Hero() {
   const { typingPhrases, subtitle, ctaText, ctaLink } = homeData.hero;
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState(typingPhrases[0]);
+  const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -17,17 +17,17 @@ export default function Hero() {
       // Pause at full text before deleting
       timer = setTimeout(() => {
         setIsDeleting(true);
-      }, 2500);
+      }, 2400);
     } else if (isDeleting && displayedText === '') {
-      // When completely deleted, switch to next phrase and pause briefly
+      // When completely deleted, cycle to next phrase
       setIsDeleting(false);
       setCurrentPhraseIndex((prev) => (prev + 1) % typingPhrases.length);
-      timer = setTimeout(() => {}, 300);
+      timer = setTimeout(() => { }, 400);
     } else {
-      // Typing or deleting a character
-      const speed = isDeleting ? 30 : 70;
+      // Typing or deleting speed
+      const speed = isDeleting ? 35 : 75;
       timer = setTimeout(() => {
-        setDisplayedText(prev => {
+        setDisplayedText((prev) => {
           if (isDeleting) {
             return currentPhrase.substring(0, prev.length - 1);
           } else {
@@ -41,34 +41,37 @@ export default function Hero() {
   }, [displayedText, isDeleting, currentPhraseIndex, typingPhrases]);
 
   return (
-    <section className="relative bg-white pt-[140px] max-md:pt-[110px] max-md:pb-20 overflow-visible z-[2]">
-      <div className="container">
+    <section id="hero" className="relative bg-white pt-[136px] lg:pt-[156px] pb-4 max-md:pb-6 overflow-visible z-[2]">
+      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
         {/* Main Hero Header Row */}
-        <div className="grid grid-cols-[1.15fr_0.85fr] max-[1100px]:grid-cols-1 gap-12 max-[1100px]:gap-6 items-start mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-12 lg:mb-14">
           {/* Left Column: Heading with Typewriter Effect */}
-          <div className="w-full">
-            <div className="hero-title-container min-h-[140px] max-[1100px]:min-h-0 flex items-center">
-              <h1 className="text-[clamp(2.4rem,4.2vw,3.8rem)] font-bold font-heading leading-[1.15] text-[#121212] tracking-[-1.5px]">
-                <span className="text-[#121212]">{displayedText}</span>
-                <span className="inline-block text-primary-gb font-normal animate-blinkCursor ml-1">|</span>
+          <div className="w-full max-w-[480px]">
+            <div className="hero-title-container min-h-[110px] lg:min-h-[125px] flex items-center">
+              <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-[1.15]">
+                <span>{displayedText}</span>
+                <span className="inline-block text-blue-600 font-normal animate-pulse ml-1 select-none">|</span>
               </h1>
             </div>
           </div>
 
           {/* Right Column: Subtitle & Yellow Action Button */}
-          <div className="hero-right-content flex flex-col items-start pt-2">
-            <p className="text-[1.35rem] leading-[1.5] font-medium text-[#8c8c8c] mb-6">{subtitle}</p>
-            <div className="w-auto">
-              <a href={ctaLink} className="theme-warning-btn">
-                <span>{ctaText}</span>
-                <ArrowRight size={22} className="btn-icon" />
-              </a>
-            </div>
+          <div className="hero-right-content flex flex-col items-start max-w-md pt-2">
+            <p className="text-gray-500 text-base lg:text-lg leading-relaxed mb-6 text-left">
+              {subtitle}
+            </p>
+            <a
+              href={ctaLink}
+              className="bg-[#facc15] hover:bg-[#eab308] text-gray-900 font-semibold px-8 py-3.5 rounded-xl flex items-center gap-3 shadow-sm hover:shadow transition-all cursor-pointer group"
+            >
+              <span>{ctaText}</span>
+              <ArrowRight className="w-5 h-5 text-gray-900 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
           </div>
         </div>
 
-        {/* Floating Booking Form Widget */}
-        <div className="relative w-full mt-5 -mb-20 z-20">
+        {/* Floating Booking Form Widget (Physically shifted downwards into blue background) */}
+        <div className="relative w-full z-20 mt-6 translate-y-28 lg:translate-y-32 -mb-12 lg:-mb-16 max-md:-mb-8 ctd-wrap">
           <BookingForm />
         </div>
       </div>

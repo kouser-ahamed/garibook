@@ -39,7 +39,7 @@ export const initScrollAnimations = (scopeRef) => {
     const counterElements = gsap.utils.toArray('.stat-counter-number');
     if (counterElements.length > 0) {
       ScrollTrigger.create({
-        trigger: '.happy-client-wrap-inside',
+        trigger: '#statistics',
         start: 'top 85%',
         onEnter: () => {
           counterElements.forEach((el) => {
@@ -49,20 +49,41 @@ export const initScrollAnimations = (scopeRef) => {
 
             gsap.to(obj, {
               val: target,
-              duration: 1.8,
+              duration: 2.2,
               ease: 'power2.out',
               onUpdate: () => {
-                if (target >= 1000) {
-                  const kVal = Math.floor(obj.val / 1000);
-                  el.innerText = `${kVal}K${suffix}`;
-                } else {
-                  el.innerText = `${Math.floor(obj.val)}${suffix}`;
-                }
+                el.innerText = `${Math.floor(obj.val).toLocaleString('en-US')}${suffix}`;
               }
             });
           });
         },
         once: true
+      });
+    }
+
+    // 2b. Animated White Car Moving along the road from left to right triggered via GSAP / ScrollTrigger
+    const movingCar = document.querySelector('.stats-moving-car');
+    if (movingCar) {
+      const carTween = gsap.fromTo(
+        movingCar,
+        { x: -160 },
+        {
+          x: () => window.innerWidth + 180,
+          duration: 9,
+          ease: 'none',
+          repeat: -1,
+          paused: true
+        }
+      );
+
+      ScrollTrigger.create({
+        trigger: '#statistics',
+        start: 'top 95%',
+        end: 'bottom top',
+        onEnter: () => carTween.play(),
+        onLeave: () => carTween.pause(),
+        onEnterBack: () => carTween.play(),
+        onLeaveBack: () => carTween.pause()
       });
     }
 

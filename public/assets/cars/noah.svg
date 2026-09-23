@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" fill="none">
+  <!-- Noah MPV Vector Preview (Boxy 7-seater) -->
+  <path d="M12 36C12 34 13 32 15 31L22 28L28 14C29 11 32 9 36 9H78C82 9 86 11 88 15L94 28C97 30 98 33 97 36L96 38H14C12.5 38 12 37 12 36Z" fill="#2563EB" />
+  <!-- Windows -->
+  <rect x="34" y="12" width="16" height="13" rx="2" fill="#BAE6FD" opacity="0.85" />
+  <rect x="54" y="12" width="16" height="13" rx="2" fill="#BAE6FD" opacity="0.85" />
+  <path d="M74 12H80C82 12 84 13 85 15L89 25H74V12Z" fill="#BAE6FD" opacity="0.85" />
+  <!-- Wheels -->
+  <circle cx="28" cy="37" r="7.5" fill="#1E293B" />
+  <circle cx="28" cy="37" r="3.5" fill="#E2E8F0" />
+  <circle cx="80" cy="37" r="7.5" fill="#1E293B" />
+  <circle cx="80" cy="37" r="3.5" fill="#E2E8F0" />
+</svg>

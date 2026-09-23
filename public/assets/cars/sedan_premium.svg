@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" fill="none">
+  <!-- Sedan Premium Vector Preview -->
+  <path d="M10 36C10 33 12 30 16 28L32 22C38 18 48 16 64 16L78 16C88 16 93 20 96 26L98 32C100 35 98 38 95 38H14C11 38 10 36 10 34V36Z" fill="#0E52FF" />
+  <path d="M34 22L44 11C46 8 50 7 54 7H74C78 7 81 9 83 12L90 22H34Z" fill="#0038C4" />
+  <path d="M52 10H72C74 10 76 11 77 13L82 20H52V10Z" fill="#BAE6FD" opacity="0.8" />
+  <path d="M38 20L45 11C46 10 47 10 48 10V20H38Z" fill="#BAE6FD" opacity="0.8" />
+  <!-- Wheels -->
+  <circle cx="26" cy="36" r="7" fill="#1E293B" />
+  <circle cx="26" cy="36" r="3" fill="#E2E8F0" />
+  <circle cx="82" cy="36" r="7" fill="#1E293B" />
+  <circle cx="82" cy="36" r="3" fill="#E2E8F0" />
+  <!-- Premium Crown/Star Badge -->
+  <circle cx="16" cy="12" r="8" fill="#FDD300" />
+  <path d="M12 14L13.5 10L16 12L18.5 10L20 14H12Z" fill="#121212" />
+</svg>

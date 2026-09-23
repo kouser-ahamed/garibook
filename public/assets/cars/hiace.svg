@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" fill="none">
+  <!-- HiAce Van Vector Preview (Large 11-seater commuter) -->
+  <path d="M10 37C10 34 11 31 13 30L18 24L22 10C23 8 25 7 28 7H84C87 7 89 8 91 11L96 23C98 26 98 30 97 34L96 38H13C11 38 10 37.5 10 37Z" fill="#1D4ED8" />
+  <!-- Long Passenger Windows -->
+  <rect x="26" y="10" width="13" height="13" rx="1.5" fill="#E0F2FE" opacity="0.9" />
+  <rect x="42" y="10" width="13" height="13" rx="1.5" fill="#E0F2FE" opacity="0.9" />
+  <rect x="58" y="10" width="13" height="13" rx="1.5" fill="#E0F2FE" opacity="0.9" />
+  <path d="M74 10H84C86 10 88 11 89 13L92 23H74V10Z" fill="#E0F2FE" opacity="0.9" />
+  <!-- Wheels -->
+  <circle cx="28" cy="38" r="8" fill="#0F172A" />
+  <circle cx="28" cy="38" r="4" fill="#CBD5E1" />
+  <circle cx="80" cy="38" r="8" fill="#0F172A" />
+  <circle cx="80" cy="38" r="4" fill="#CBD5E1" />
+</svg>
