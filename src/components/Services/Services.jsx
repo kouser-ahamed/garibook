@@ -18,37 +18,36 @@ export default function Services() {
   const cardsContainerRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    // 1. Desktop (>= 1024px): 4 cards in 1 horizontal row
+    mm.add('(min-width: 1024px)', () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionWrapperRef.current,
           start: 'top 85%',
           end: 'top 20%',
-          scrub: 1, // Smoothly binds forward and backward progress directly to user scroll
+          scrub: 1,
         },
       });
 
-      // Step 1: "Our Services" reveals first
       tl.fromTo(
         ourServicesRef.current,
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }
       )
-        // Step 2: Category buttons reveal second
         .fromTo(
           pillsRef.current,
           { y: 35, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
           '+=0.08'
         )
-        // Step 3: "Every Ride One Platform" reveals third
         .fromTo(
           headingRef.current,
           { y: 40, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
           '+=0.08'
         )
-        // Step 4: 4 Service cards land earlier and complete the full view
         .fromTo(
           cardsContainerRef.current?.children || [],
           { y: 55, opacity: 0 },
@@ -61,10 +60,94 @@ export default function Services() {
           },
           '+=0.1'
         );
-    }, sectionWrapperRef);
+    });
+
+    // 2. Tablet (640px to 1023px): 2 columns x 2 rows
+    mm.add('(min-width: 640px) and (max-width: 1023px)', () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionWrapperRef.current,
+          start: 'top 85%',
+          end: 'top 15%',
+          scrub: 1,
+        },
+      });
+
+      tl.fromTo(
+        ourServicesRef.current,
+        { y: 35, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }
+      )
+        .fromTo(
+          pillsRef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' },
+          '+=0.06'
+        )
+        .fromTo(
+          headingRef.current,
+          { y: 35, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' },
+          '+=0.06'
+        )
+        .fromTo(
+          cardsContainerRef.current?.children || [],
+          { y: 45, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.14,
+            ease: 'power2.out',
+          },
+          '+=0.08'
+        );
+    });
+
+    // 3. Mobile (< 640px): 1 column, 4 stacked cards
+    mm.add('(max-width: 639px)', () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionWrapperRef.current,
+          start: 'top 85%',
+          end: 'top 10%',
+          scrub: 1,
+        },
+      });
+
+      tl.fromTo(
+        ourServicesRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' }
+      )
+        .fromTo(
+          pillsRef.current,
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' },
+          '+=0.05'
+        )
+        .fromTo(
+          headingRef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' },
+          '+=0.05'
+        )
+        .fromTo(
+          cardsContainerRef.current?.children || [],
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            stagger: 0.12,
+            ease: 'power2.out',
+          },
+          '+=0.06'
+        );
+    });
 
     ScrollTrigger.refresh();
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   const services = [
@@ -143,25 +226,25 @@ export default function Services() {
   );
 
   return (
-    <section ref={sectionWrapperRef} className="w-full bg-white py-16 sm:py-20" id="services">
+    <section ref={sectionWrapperRef} className="w-full bg-white py-12 sm:py-16 lg:py-20" id="services">
       <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
         {/* Top Section Header */}
         <h2
           ref={ourServicesRef}
-          className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-[1.12] mb-5"
+          className="text-2xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-[1.12] mb-4 sm:mb-5"
         >
           Our Services
         </h2>
 
         {/* Category Filter Pills */}
-        <div ref={pillsRef} className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8" role="tablist">
+        <div ref={pillsRef} className="flex flex-wrap items-center gap-2.5 sm:gap-4 mb-6 sm:mb-8" role="tablist">
           {tabs.map((tab) => {
             const isTabActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 type="button"
-                className={`px-6 sm:px-7 py-2.5 sm:py-3 rounded-2xl text-sm sm:text-base font-bold transition-all cursor-pointer ${isTabActive
+                className={`px-5 sm:px-7 py-2 sm:py-3 rounded-2xl text-xs sm:text-base font-bold transition-all cursor-pointer ${isTabActive
                   ? 'bg-[#0052fe] text-white shadow-sm'
                   : 'bg-[#eaedf0] text-slate-700 hover:bg-slate-200'
                   }`}
@@ -181,7 +264,7 @@ export default function Services() {
           <div className="tab-pane-fade animate-modalPop">
             <h3
               ref={headingRef}
-              className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-[1.12] mb-10"
+              className="text-2xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-[1.12] mb-8 sm:mb-10"
             >
               Every Ride <br /> One Platform
             </h3>
