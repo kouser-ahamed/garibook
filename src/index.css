@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   GARIBOOK DESIGN SYSTEM TOKENS & BASE
+   ========================================================================== */
+
+:root {
+  --primary-gb: #0e52ff;
+  --primary-gb-hover: #0038c4;
+  --primary-gradient: linear-gradient(270deg, #0e53ff 0%, #0038c4 100%);
+  --warning-gb: #fdd300;
+  --warning-gb-hover: #e6c003;
+  --dark-gb: #121212;
+  --dark-gb-card: #1a1a1a;
+  --light-gray-gb: #f1f6ff;
+  --bg-card: #f5f8ff;
+  --text-main: #121212;
+  --text-muted: #888888;
+  --text-light: #9d9d9d;
+  --border-color: #dee7f2;
+  --border-light: #e9e9e9;
+  --font-main: 'Montserrat', sans-serif;
+  --font-heading: 'Outfit', 'Montserrat', sans-serif;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    font-family: var(--font-main);
+    color: var(--text-main);
+    background-color: #ffffff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--dark-gb);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    letter-spacing: -1.5px;
+  }
+
+  h2 {
+    font-size: clamp(1.85rem, 3.5vw, 3rem);
+    letter-spacing: -1px;
+  }
+
+  h3 {
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  h5 {
+    font-size: 1.125rem;
+  }
+
+  p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  /* Reusable Container matching Garibook specs */
+  .container {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1520px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  .section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @media (max-width: 768px) {
+    .section-padding {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+
+  /* Reusable Garibook Action Buttons */
+  .theme-primary-btn {
+    @apply inline-flex items-center justify-between gap-[14px] bg-primary-gb text-white font-semibold text-[1.15rem] py-[18px] px-7 rounded-[15px] shadow-gb-btn hover:bg-primary-gb-hover hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-gb-btn-hover transition-all duration-300 whitespace-nowrap;
+  }
+
+  .theme-primary-btn .btn-icon {
+    @apply transition-transform duration-300;
+  }
+
+  .theme-primary-btn:hover .btn-icon {
+    @apply translate-x-1.5;
+  }
+
+  .theme-warning-btn {
+    @apply inline-flex items-center justify-between gap-[14px] bg-warning-gb text-dark-gb font-bold text-[1.15rem] py-[18px] px-[30px] rounded-[15px] shadow-gb-warning hover:bg-warning-gb-hover hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-gb-warning-hover transition-all duration-300 whitespace-nowrap;
+  }
+
+  .theme-warning-btn .btn-icon {
+    @apply transition-transform duration-300;
+  }
+
+  .theme-warning-btn:hover .btn-icon {
+    @apply translate-x-1.5;
+  }
+
+  .theme-white-btn {
+    @apply inline-flex items-center gap-3 bg-white text-primary-gb font-semibold text-[1.1rem] py-4 px-[26px] rounded-[15px] border-2 border-white shadow-gb-sm hover:bg-primary-gb hover:text-white hover:border-primary-gb hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  .gb-badge {
+    @apply inline-flex items-center gap-1.5 py-1.5 px-3.5 rounded-full text-[0.85rem] font-semibold bg-primary-gb/10 text-primary-gb;
+  }
+
+  /* Sticky Navbar Transition */
+  .theme-navbar-wrapper {
+    @apply absolute top-0 left-0 w-full z-[1000] py-6 transition-all duration-300;
+  }
+
+  .theme-navbar-wrapper.is-sticky {
+    @apply fixed top-0 left-0 bg-white py-3.5 shadow-[0_4px_20px_rgba(0,0,0,0.08)] animate-navSlideDown;
+  }
+
+  /* Floating Scroll To Top */
+  .scroll-to-top-btn {
+    @apply fixed bottom-9 right-9 w-[52px] h-[52px] rounded-full bg-primary-gb text-white flex items-center justify-center shadow-[0_8px_24px_rgba(14,82,255,0.4)] z-[998] hover:bg-primary-gb-hover hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer;
+  }
+}

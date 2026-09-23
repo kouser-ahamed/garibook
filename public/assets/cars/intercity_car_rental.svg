@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 72" fill="none">
+  <!-- Modern Intercity Sedan SVG -->
+  <path d="M15 52C15 52 24 38 38 36L72 35C82 35 94 40 102 46L108 52H15Z" fill="#0E52FF" opacity="0.15"/>
+  <path d="M12 50C12 47 14 44 18 42L36 34C42 30 52 28 66 28L80 28C92 28 102 34 106 42L110 49C112 52 110 56 106 56H16C13 56 12 53 12 50Z" fill="currentColor"/>
+  <path d="M38 34L48 20C50 17 54 16 58 16H76C81 16 85 18 87 22L94 34H38Z" fill="#0E52FF"/>
+  <!-- Windows -->
+  <path d="M56 20H72C75 20 78 22 79 25L84 32H56V20Z" fill="#FFFFFF" opacity="0.85"/>
+  <path d="M42 32L51 21C52 20 53 20 54 20V32H42Z" fill="#FFFFFF" opacity="0.85"/>
+  <!-- Wheels -->
+  <circle cx="32" cy="52" r="10" fill="#121212"/>
+  <circle cx="32" cy="52" r="5" fill="#FFFFFF"/>
+  <circle cx="90" cy="52" r="10" fill="#121212"/>
+  <circle cx="90" cy="52" r="5" fill="#FFFFFF"/>
+  <!-- Headlights & tail -->
+  <path d="M107 46C109 46 111 48 111 50H105C105 48 106 46 107 46Z" fill="#FDD300"/>
+  <path d="M12 47C12 45 13 44 15 44V49H13C12 49 12 48 12 47Z" fill="#FF4D4F"/>
+</svg>

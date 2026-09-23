@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 72" fill="none">
+  <!-- Airport Rental SVG with Airplane -->
+  <path d="M14 52C14 52 22 42 36 40L68 39C78 39 88 43 96 48L102 52H14Z" fill="#0E52FF" opacity="0.15"/>
+  <path d="M12 50C12 47 14 44 18 42L34 37C38 33 46 31 58 31L74 31C84 31 94 36 98 42L102 49C104 52 102 56 98 56H16C13 56 12 53 12 50Z" fill="currentColor"/>
+  <path d="M34 36L42 26C44 23 48 22 52 22H70C74 22 78 24 80 27L86 36H34Z" fill="#0E52FF"/>
+  <path d="M50 25H66C69 25 72 27 73 29L77 34H50V25Z" fill="#FFFFFF" opacity="0.85"/>
+  <circle cx="28" cy="52" r="9" fill="#121212"/>
+  <circle cx="28" cy="52" r="4.5" fill="#FFFFFF"/>
+  <circle cx="82" cy="52" r="9" fill="#121212"/>
+  <circle cx="82" cy="52" r="4.5" fill="#FFFFFF"/>
+  <!-- Airplane ascending icon -->
+  <g transform="translate(78, 2) scale(0.9)">
+    <circle cx="16" cy="14" r="14" fill="#0E52FF"/>
+    <path d="M22 13L17 11V7C17 6.4 16.6 6 16 6C15.4 6 15 6.4 15 7V11L10 13V15L15 13.5V17L13.5 18V19.5L16 19L18.5 19.5V18L17 17V13.5L22 15V13Z" fill="#FFFFFF"/>
+  </g>
+</svg>

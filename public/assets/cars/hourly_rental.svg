@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 72" fill="none">
+  <!-- Hourly Rental SVG with Clock -->
+  <path d="M14 52C14 52 22 42 36 40L68 39C78 39 88 43 96 48L102 52H14Z" fill="#0E52FF" opacity="0.15"/>
+  <path d="M12 50C12 47 14 44 18 42L34 37C38 33 46 31 58 31L74 31C84 31 94 36 98 42L102 49C104 52 102 56 98 56H16C13 56 12 53 12 50Z" fill="currentColor"/>
+  <path d="M34 36L42 26C44 23 48 22 52 22H70C74 22 78 24 80 27L86 36H34Z" fill="#0E52FF"/>
+  <circle cx="28" cy="52" r="9" fill="#121212"/>
+  <circle cx="28" cy="52" r="4.5" fill="#FFFFFF"/>
+  <circle cx="82" cy="52" r="9" fill="#121212"/>
+  <circle cx="82" cy="52" r="4.5" fill="#FFFFFF"/>
+  <!-- Clock / Timer icon -->
+  <g transform="translate(78, 2) scale(0.9)">
+    <circle cx="16" cy="14" r="14" fill="#0E52FF"/>
+    <circle cx="16" cy="14" r="11" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M16 8V14L19 17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

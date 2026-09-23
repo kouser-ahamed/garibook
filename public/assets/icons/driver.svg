@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#0E52FF" fill-opacity="0.1"/>
+  <!-- Steering wheel and driver badge -->
+  <circle cx="32" cy="32" r="18" stroke="#FDD300" stroke-width="3"/>
+  <circle cx="32" cy="32" r="6" fill="#0E52FF"/>
+  <path d="M14 32H26M38 32H50M32 38V50" stroke="#FDD300" stroke-width="3" stroke-linecap="round"/>
+</svg>

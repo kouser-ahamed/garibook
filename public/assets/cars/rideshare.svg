@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 72" fill="none">
+  <!-- City Rideshare SVG with pin -->
+  <path d="M16 52C16 52 24 40 38 38L70 37C80 37 90 41 98 47L104 52H16Z" fill="#0E52FF" opacity="0.15"/>
+  <path d="M14 50C14 47 16 44 20 42L36 36C40 32 48 30 60 30L76 30C86 30 96 35 100 42L104 49C106 52 104 56 100 56H18C15 56 14 53 14 50Z" fill="currentColor"/>
+  <path d="M36 35L44 24C46 21 50 20 54 20H72C76 20 80 22 82 25L88 35H36Z" fill="#0E52FF"/>
+  <path d="M52 23H68C71 23 74 25 75 27L79 33H52V23Z" fill="#FFFFFF" opacity="0.85"/>
+  <path d="M40 33L47 24C48 23 49 23 50 23V33H40Z" fill="#FFFFFF" opacity="0.85"/>
+  <circle cx="30" cy="52" r="9" fill="#121212"/>
+  <circle cx="30" cy="52" r="4.5" fill="#FFFFFF"/>
+  <circle cx="84" cy="52" r="9" fill="#121212"/>
+  <circle cx="84" cy="52" r="4.5" fill="#FFFFFF"/>
+  <!-- Location Pin badge -->
+  <g transform="translate(86, 4) scale(0.9)">
+    <circle cx="16" cy="14" r="14" fill="#FDD300"/>
+    <path d="M16 6C12.7 6 10 8.7 10 12C10 16.5 16 22 16 22C16 22 22 16.5 22 12C22 8.7 19.3 6 16 6ZM16 14C14.9 14 14 13.1 14 12C14 10.9 14.9 10 16 10C17.1 10 18 10.9 18 12C18 13.1 17.1 14 16 14Z" fill="#121212"/>
+  </g>
+</svg>
