@@ -1,23 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { homeData } from '../../data/homeData';
 
 export default function Services() {
-  const { tabs, ridesCards, business, club, vms } = homeData.services;
+  const { tabs, business, club, vms } = homeData.services;
   const [activeTab, setActiveTab] = useState('rides');
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const [isUserHovering, setIsUserHovering] = useState(false);
+  const [activeId, setActiveId] = useState('intercity');
 
-  // Auto-cycling animation for the "Rides" tab cards
-  useEffect(() => {
-    if (activeTab !== 'rides' || isUserHovering) return;
-
-    const interval = setInterval(() => {
-      setActiveCardIndex((prev) => (prev + 1) % ridesCards.length);
-    }, 2800);
-
-    return () => clearInterval(interval);
-  }, [activeTab, isUserHovering, ridesCards.length]);
+  const services = [
+    {
+      id: 'intercity',
+      title: 'Intercity Car Rental',
+      desc: 'Travel between cities with comfort and confidence.',
+      image: '/assets/cars/intercity_car_rental.svg',
+      badge: 'Popular',
+    },
+    {
+      id: 'rideshare',
+      title: 'Ride share',
+      desc: 'Go anywhere in the city, quickly and easily.',
+      image: '/assets/cars/rideshare.svg',
+      badge: 'Fast',
+    },
+    {
+      id: 'airport',
+      title: 'Airport Rental',
+      desc: "Whether you're flying abroad or returning home, enjoy a comfortable and worry-free airport journey.",
+      image: '/assets/cars/airport_rental.svg',
+      badge: '24/7',
+    },
+    {
+      id: 'hourly',
+      title: 'Hourly Rental',
+      desc: 'Rent a car by the hour, tailored to your needs.',
+      image: '/assets/cars/hourly_rental.svg',
+      badge: 'Flexible',
+    },
+  ];
 
   const renderServiceDetail = (data) => (
     <div className="tab-pane-fade animate-modalPop">
@@ -64,132 +83,134 @@ export default function Services() {
   );
 
   return (
-    <section className="bg-white section-padding" id="services">
-      <div className="container">
-        {/* Section Header */}
-        <div className="section-header gsap-section-header mb-2">
-          <h2 className="text-[clamp(1.85rem,3.5vw,3rem)] font-bold font-heading text-dark-gb tracking-[-1px]">
-            Our Services
-          </h2>
-        </div>
-
-        {/* Tab Navigation: Rides, Garibook Business, Garibook Club, VMS */}
-        <div className="mt-6 mb-12">
-          <div className="inline-flex gap-3 flex-wrap max-sm:w-full" role="tablist">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                className={`font-bold text-[1.05rem] py-3 px-8 rounded-full transition-all duration-300 max-sm:flex-1 max-sm:text-center max-sm:py-2.5 max-sm:px-4 max-sm:text-[0.92rem] cursor-pointer ${
-                  activeTab === tab.id
-                    ? 'bg-primary-gb text-white shadow-[0_4px_16px_rgba(14,82,255,0.35)] scale-[1.02]'
-                    : 'bg-[#f1f5f9] text-[#334155] hover:bg-[#e2e8f0] hover:text-[#121212]'
-                }`}
-                onClick={() => {
-                  setActiveTab(tab.id);
-                  setActiveCardIndex(0);
-                }}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Tab 1: Rides Content */}
-        {activeTab === 'rides' && (
-          <div className="tab-pane-fade animate-modalPop">
-            <div className="mb-8 rides-subheading gsap-section-header">
-              <h3 className="text-[clamp(1.9rem,3.2vw,2.6rem)] font-bold font-heading text-[#121212] leading-[1.2] tracking-[-0.5px]">
-                Every Ride <br className="hidden sm:inline" /> One Platform
-              </h3>
-            </div>
-
-            {/* 4 Cards with Auto-Cycling Active Animation */}
-            <div
-              className="service-cards-grid grid grid-cols-4 max-[1150px]:grid-cols-2 max-sm:grid-cols-1 gap-6"
-              onMouseEnter={() => setIsUserHovering(true)}
-              onMouseLeave={() => setIsUserHovering(false)}
+    <section className="py-16 max-w-7xl mx-auto px-6 lg:px-8" id="services">
+      {/* Category Pills & Heading */}
+      <p className="text-xl sm:text-2xl font-black text-slate-900 mb-4">Our Services</p>
+      <div className="flex flex-wrap items-center gap-3 mb-8" role="tablist">
+        {tabs.map((tab) => {
+          const isTabActive = activeTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                isTabActive
+                  ? 'bg-[#0052fe] text-white shadow-md shadow-blue-500/25'
+                  : 'bg-gray-100 text-slate-700 hover:bg-gray-200'
+              }`}
+              onClick={() => {
+                setActiveTab(tab.id);
+                if (tab.id === 'rides') setActiveId('intercity');
+              }}
             >
-              {ridesCards.map((card, idx) => {
-                const isActive = activeCardIndex === idx;
+              {tab.label}
+            </button>
+          );
+        })}
+      </div>
 
-                return (
-                  <div
-                    key={card.id}
-                    className={`service-card-item group p-7 min-h-[340px] max-sm:min-h-0 max-sm:py-6 max-sm:px-5 rounded-2xl flex flex-col justify-between items-start transition-all duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)] relative overflow-hidden cursor-pointer ${
-                      isActive
-                        ? 'bg-primary-gb text-white -translate-y-2 shadow-[0_20px_35px_rgba(14,82,255,0.32)] border-2 border-primary-gb'
-                        : 'bg-white text-[#121212] border-2 border-[#e2e8f0] shadow-sm hover:border-primary-gb/50 hover:-translate-y-1 hover:shadow-md'
-                    }`}
-                    onMouseEnter={() => setActiveCardIndex(idx)}
-                    onClick={() => setActiveCardIndex(idx)}
-                  >
-                    {/* Top Vector Car Illustration */}
-                    <div className="w-full flex items-center justify-between mb-6">
-                      <div className="relative">
-                        <img
-                          src={card.icon}
-                          alt={card.title}
-                          className={`h-[64px] w-auto transition-transform duration-300 ${
-                            isActive ? 'scale-110 translate-x-1' : 'group-hover:scale-105'
-                          }`}
-                        />
-                      </div>
-                      {/* Active indicator dot or badge */}
-                      {card.badge && (
-                        <span
-                          className={`text-xs font-bold px-2.5 py-1 rounded-full transition-colors duration-300 ${
-                            isActive
-                              ? 'bg-white/20 text-white'
-                              : 'bg-primary-gb/10 text-primary-gb'
-                          }`}
-                        >
-                          {card.badge}
-                        </span>
-                      )}
-                    </div>
+      {/* Tab 1: Rides Content */}
+      {activeTab === 'rides' && (
+        <div className="tab-pane-fade animate-modalPop">
+          <h3 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight mb-10 tracking-tight">
+            Every Ride <br /> One Platform
+          </h3>
 
-                    {/* Card Content: Title & Description */}
-                    <div className="w-full">
-                      <h4
-                        className={`text-[1.35rem] font-bold font-heading mb-2.5 transition-colors duration-300 ${
-                          isActive ? 'text-white' : 'text-[#121212]'
-                        }`}
-                      >
-                        {card.title}
-                      </h4>
-                      <p
-                        className={`text-[0.95rem] leading-[1.55] transition-colors duration-300 ${
-                          isActive ? 'text-white/90' : 'text-[#64748b]'
-                        }`}
-                      >
-                        {card.description}
-                      </p>
-                    </div>
-
-                    {/* Active highlight bottom bar */}
+          {/* 4 Cards Grid */}
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            onMouseLeave={() => setActiveId('intercity')}
+          >
+            {services.map((item) => {
+              const isActive = activeId === item.id;
+              return (
+                <div
+                  key={item.id}
+                  onMouseEnter={() => setActiveId(item.id)}
+                  onClick={() => setActiveId(item.id)}
+                  className={`group relative overflow-hidden rounded-2xl p-6 min-h-[310px] flex flex-col justify-between transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? 'bg-[#0052fe] shadow-xl shadow-blue-500/20 -translate-y-1.5'
+                      : 'bg-[#f8fafc] hover:bg-white hover:shadow-lg border border-slate-100 hover:-translate-y-1'
+                  }`}
+                >
+                  {/* Top Car Graphic Area with White Notch */}
+                  <div className="relative w-full h-24 flex items-center justify-between">
+                    {/* White Pocket Notch on the left (Only visible/expanded when active) */}
                     <div
-                      className={`absolute bottom-0 left-0 h-1.5 transition-all duration-300 ${
-                        isActive ? 'w-full bg-warning-gb' : 'w-0 bg-transparent'
+                      className={`absolute -left-6 top-1/2 -translate-y-1/2 h-16 w-24 bg-white rounded-r-2xl transition-all duration-300 pointer-events-none ${
+                        isActive
+                          ? 'opacity-100 scale-x-100 origin-left'
+                          : 'opacity-0 scale-x-50 origin-left'
                       }`}
                     />
+
+                    {/* Car Illustration with Smooth Translation */}
+                    <div
+                      className={`relative z-20 transition-transform duration-300 ease-out ${
+                        isActive ? 'translate-x-6' : 'translate-x-0'
+                      }`}
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-16 w-auto object-contain select-none"
+                      />
+                    </div>
+
+                    {/* Badge */}
+                    {item.badge && (
+                      <span
+                        className={`relative z-20 text-xs font-semibold px-2.5 py-1 rounded-full transition-all duration-300 ${
+                          isActive
+                            ? 'bg-white/20 text-white backdrop-blur-sm'
+                            : 'bg-blue-50 text-blue-600'
+                        }`}
+                      >
+                        {item.badge}
+                      </span>
+                    )}
                   </div>
-                );
-              })}
-            </div>
+
+                  {/* Text Content */}
+                  <div className="mt-6 z-20">
+                    <h4
+                      className={`text-xl font-bold mb-2 transition-colors duration-200 ${
+                        isActive ? 'text-white' : 'text-slate-900'
+                      }`}
+                    >
+                      {item.title}
+                    </h4>
+                    <p
+                      className={`text-sm leading-relaxed transition-colors duration-200 ${
+                        isActive ? 'text-white/90' : 'text-slate-500'
+                      }`}
+                    >
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  {/* Bottom Accent Bar */}
+                  <div
+                    className={`absolute bottom-0 left-0 h-1.5 transition-all duration-300 ${
+                      isActive ? 'w-full bg-[#facc15]' : 'w-0 bg-transparent'
+                    }`}
+                  />
+                </div>
+              );
+            })}
           </div>
-        )}
+        </div>
+      )}
 
-        {/* Tab 2: Garibook Business */}
-        {activeTab === 'business' && renderServiceDetail(business)}
+      {/* Tab 2: Garibook Business */}
+      {activeTab === 'business' && renderServiceDetail(business)}
 
-        {/* Tab 3: Garibook Club */}
-        {activeTab === 'club' && renderServiceDetail(club)}
+      {/* Tab 3: Garibook Club */}
+      {activeTab === 'club' && renderServiceDetail(club)}
 
-        {/* Tab 4: VMS (Vehicle Management System) */}
-        {activeTab === 'vms' && renderServiceDetail(vms)}
-      </div>
+      {/* Tab 4: VMS (Vehicle Management System) */}
+      {activeTab === 'vms' && renderServiceDetail(vms)}
     </section>
   );
 }
