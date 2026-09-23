@@ -64,29 +64,31 @@ export default function Statistics() {
       className="w-full bg-gradient-to-r from-[#0052cc] to-[#003d99] relative overflow-hidden overflow-x-hidden pt-44 sm:pt-48 lg:pt-52"
     >
       {/* Content Container */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1420px] mx-auto px-6 lg:px-8 relative z-10 pt-16 sm:pt-20 lg:pt-24">
         {/* Section Title */}
-        <div className="max-w-3xl mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-12 gsap-section-header">
-            From Everyday Rides to <br className="hidden sm:inline" /> Meaningful Journeys
+        <div className="w-full text-left self-start mt-6 lg:mt-8">
+          <h2 className="text-4xl sm:text-5xl lg:text-[62px] xl:text-[64px] font-black text-white leading-[1.08] tracking-tight text-left gsap-section-header">
+            From Everyday Rides to Meaningful <br className="hidden sm:inline" /> Journeys
           </h2>
         </div>
 
-        {/* Statistics Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {statistics.map((stat, idx) => (
-            <div key={idx} className="flex flex-col">
-              <span
-                ref={(el) => (numberRefs.current[idx] = el)}
-                className="text-yellow-400 font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight"
-              >
-                0{stat.suffix}
-              </span>
-              <span className="text-white text-sm sm:text-base font-medium mt-2">
-                {stat.label}
-              </span>
-            </div>
-          ))}
+        {/* Statistics Row (Far Right Bottom) */}
+        <div className="flex justify-end mt-12 sm:mt-16 lg:mt-36">
+          <div className="flex flex-wrap sm:flex-nowrap items-end gap-4 sm:gap-6 lg:gap-7 lg:mr-0 translate-y-4 lg:translate-y-6">
+            {statistics.map((stat, idx) => (
+              <div key={idx} className="flex flex-col">
+                <span
+                  ref={(el) => (numberRefs.current[idx] = el)}
+                  className="text-[#facc15] font-extrabold text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-none"
+                >
+                  0{stat.suffix}
+                </span>
+                <span className="text-white/90 text-xs sm:text-sm lg:text-[15px] font-medium mt-2 whitespace-nowrap">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
