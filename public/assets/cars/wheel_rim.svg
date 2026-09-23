@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Outer Tire Rubber -->
+  <circle cx="100" cy="100" r="98" fill="#141416" stroke="#232326" stroke-width="3"/>
+  <circle cx="100" cy="100" r="82" fill="#1c1d21"/>
+
+  <!-- Tire Inner Bead Line -->
+  <circle cx="100" cy="100" r="76" stroke="#0a0a0c" stroke-width="2"/>
+
+  <!-- Brake Rotor (Rotates behind spokes or gives depth) -->
+  <circle cx="100" cy="100" r="72" fill="#2d3139"/>
+  <circle cx="100" cy="100" r="68" stroke="#3f4552" stroke-width="1.5" stroke-dasharray="8 6"/>
+
+  <!-- Alloy Rim Outer Lip (Polished Aluminum) -->
+  <circle cx="100" cy="100" r="72" stroke="#e2e8f0" stroke-width="2.5"/>
+  <circle cx="100" cy="100" r="64" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- 5-Twin-Spoke Machined Alloy Wheel -->
+  <g fill="#e2e8f0" stroke="#0f172a" stroke-width="0.8">
+    <!-- Spoke Pair 1 (0 deg - top) -->
+    <path d="M96 28 L94 85 L98 86 L100 28 Z"/>
+    <path d="M104 28 L106 85 L102 86 L100 28 Z"/>
+
+    <!-- Spoke Pair 2 (72 deg) -->
+    <g transform="rotate(72 100 100)">
+      <path d="M96 28 L94 85 L98 86 L100 28 Z"/>
+      <path d="M104 28 L106 85 L102 86 L100 28 Z"/>
+    </g>
+
+    <!-- Spoke Pair 3 (144 deg) -->
+    <g transform="rotate(144 100 100)">
+      <path d="M96 28 L94 85 L98 86 L100 28 Z"/>
+      <path d="M104 28 L106 85 L102 86 L100 28 Z"/>
+    </g>
+
+    <!-- Spoke Pair 4 (216 deg) -->
+    <g transform="rotate(216 100 100)">
+      <path d="M96 28 L94 85 L98 86 L100 28 Z"/>
+      <path d="M104 28 L106 85 L102 86 L100 28 Z"/>
+    </g>
+
+    <!-- Spoke Pair 5 (288 deg) -->
+    <g transform="rotate(288 100 100)">
+      <path d="M96 28 L94 85 L98 86 L100 28 Z"/>
+      <path d="M104 28 L106 85 L102 86 L100 28 Z"/>
+    </g>
+  </g>
+
+  <!-- Center Hub Cap & Lug Nuts -->
+  <circle cx="100" cy="100" r="22" fill="#1e293b" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="100" cy="100" r="14" fill="#0f172a"/>
+  <circle cx="100" cy="100" r="8" fill="#e2e8f0"/>
+
+  <!-- Lug nuts (5 points) -->
+  <circle cx="100" cy="84" r="2.5" fill="#94a3b8"/>
+  <circle cx="115" cy="89" r="2.5" fill="#94a3b8"/>
+  <circle cx="110" cy="109" r="2.5" fill="#94a3b8"/>
+  <circle cx="90" cy="109" r="2.5" fill="#94a3b8"/>
+  <circle cx="85" cy="89" r="2.5" fill="#94a3b8"/>
+</svg>

@@ -35,57 +35,7 @@ export const initScrollAnimations = (scopeRef) => {
       );
     });
 
-    // 2. Statistics Numeric Counters Animation
-    const counterElements = gsap.utils.toArray('.stat-counter-number');
-    if (counterElements.length > 0) {
-      ScrollTrigger.create({
-        trigger: '#statistics',
-        start: 'top 85%',
-        onEnter: () => {
-          counterElements.forEach((el) => {
-            const target = parseInt(el.getAttribute('data-target') || '0', 10);
-            const suffix = el.getAttribute('data-suffix') || '';
-            const obj = { val: 0 };
-
-            gsap.to(obj, {
-              val: target,
-              duration: 2.2,
-              ease: 'power2.out',
-              onUpdate: () => {
-                el.innerText = `${Math.floor(obj.val).toLocaleString('en-US')}${suffix}`;
-              }
-            });
-          });
-        },
-        once: true
-      });
-    }
-
-    // 2b. Animated White Car Moving along the road from left to right triggered via GSAP / ScrollTrigger
-    const movingCar = document.querySelector('.stats-moving-car');
-    if (movingCar) {
-      const carTween = gsap.fromTo(
-        movingCar,
-        { x: -160 },
-        {
-          x: () => window.innerWidth + 180,
-          duration: 9,
-          ease: 'none',
-          repeat: -1,
-          paused: true
-        }
-      );
-
-      ScrollTrigger.create({
-        trigger: '#statistics',
-        start: 'top 95%',
-        end: 'bottom top',
-        onEnter: () => carTween.play(),
-        onLeave: () => carTween.pause(),
-        onEnterBack: () => carTween.play(),
-        onLeaveBack: () => carTween.pause()
-      });
-    }
+    // 2. Statistics section animations are self-contained within Statistics.jsx
 
     // 3. Service Cards stagger reveal
     const serviceCards = gsap.utils.toArray('.service-card-item');

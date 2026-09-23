@@ -1,57 +1,120 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { homeData } from '../../data/homeData';
+import RunningCar from '../RunningCar/RunningCar';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Statistics() {
   const { statistics } = homeData;
+  const sectionRef = useRef(null);
+  const skylineTrackRef = useRef(null);
+  const numberRefs = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // 1. City Skyline Moving Smoothly from Right to Left (Infinite Seamless Parallax)
+      if (skylineTrackRef.current) {
+        gsap.to(skylineTrackRef.current, {
+          x: "-50%",
+          duration: 28,
+          ease: "none",
+          repeat: -1,
+        });
+      }
+
+      // 2. Animated Counter Numbers (ScrollTrigger)
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          statistics.forEach((stat, idx) => {
+            const el = numberRefs.current[idx];
+            if (!el) return;
+
+            const target = stat.targetNumber;
+            const suffix = stat.suffix || '';
+            const obj = { val: 0 };
+
+            gsap.to(obj, {
+              val: target,
+              duration: 2.2,
+              ease: 'power2.out',
+              onUpdate: () => {
+                el.innerText = `${Math.floor(obj.val).toLocaleString('en-US')}${suffix}`;
+              },
+              onComplete: () => {
+                el.innerText = `${target.toLocaleString('en-US')}${suffix}`;
+              },
+            });
+          });
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [statistics]);
 
   return (
     <section
-      className="w-full bg-gradient-to-r from-[#0052cc] to-[#003d99] relative overflow-hidden"
+      ref={sectionRef}
       id="statistics"
+      className="w-full bg-gradient-to-r from-[#0052cc] to-[#003d99] relative overflow-hidden overflow-x-hidden pt-44 sm:pt-48 lg:pt-52"
     >
-      <div className="happy-client-wrap-inside relative pt-60 lg:pt-64 pb-24 max-[991px]:pt-50 max-[991px]:pb-20 w-full overflow-hidden">
-        <div className="max-w-[1420px] mx-auto px-6 lg:px-8 relative z-10">
-          <div className="max-w-[850px] mb-12 max-md:mb-8">
-            <h2 className="text-[clamp(2.2rem,4vw,3.6rem)] font-bold font-heading leading-[1.18] text-white tracking-[-1px] gsap-section-header">
-              From Everyday Rides to <br className="hidden sm:inline" /> Meaningful Journeys
-            </h2>
-          </div>
-
-          <div className="mt-12 max-md:mt-6">
-            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-md:gap-6 w-full list-none p-0 m-0">
-              {statistics.map((stat, idx) => (
-                <li
-                  key={idx}
-                  className="flex flex-col items-start bg-white/5 backdrop-blur-[2px] p-6 max-sm:p-4 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300"
-                >
-                  <h4
-                    className="stat-counter-number text-[clamp(2.2rem,3.4vw,3.2rem)] font-extrabold font-heading leading-none text-warning-gb mb-2.5 tracking-[-1px]"
-                    data-target={stat.targetNumber}
-                    data-suffix={stat.suffix}
-                  >
-                    0{stat.suffix}
-                  </h4>
-                  <span className="text-[1.1rem] max-sm:text-[0.95rem] font-semibold text-white/90">
-                    {stat.label}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* Content Container */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        {/* Section Title */}
+        <div className="max-w-3xl mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-12 gsap-section-header">
+            From Everyday Rides to <br className="hidden sm:inline" /> Meaningful Journeys
+          </h2>
         </div>
 
-        {/* City outline silhouette illustration at the bottom */}
-        <div className="absolute bottom-0 left-0 w-[400%] h-20 bg-[url('/assets/images/city_skyline.svg')] bg-repeat-x bg-[length:1200px_80px] animate-moveCity pointer-events-none z-[1]" />
+        {/* Statistics Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {statistics.map((stat, idx) => (
+            <div key={idx} className="flex flex-col">
+              <span
+                ref={(el) => (numberRefs.current[idx] = el)}
+                className="text-yellow-400 font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight"
+              >
+                0{stat.suffix}
+              </span>
+              <span className="text-white text-sm sm:text-base font-medium mt-2">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
 
-        {/* Animated white car moving along the road from left to right triggered via GSAP / ScrollTrigger */}
-        <div className="absolute bottom-3 left-0 z-[6] pointer-events-none stats-car-track w-full">
-          <div className="stats-moving-car inline-block animate-driveCar">
-            <img
-              src="/assets/cars/white_sedan.svg"
-              alt="Garibook White Sedan"
-              className="w-[125px] max-md:w-[95px] h-auto drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"
-            />
-          </div>
+      {/* Animated City Skyline & Driving Car (Bottom Horizon) */}
+      <div className="relative w-full overflow-hidden h-32 sm:h-36 lg:h-40 mt-12 pointer-events-none select-none">
+        {/* City Skyline Scrolling Track (Right to Left Seamless Loop) */}
+        <div
+          ref={skylineTrackRef}
+          className="absolute bottom-0 left-0 flex w-[200%] h-28 sm:h-32 lg:h-36 pointer-events-none opacity-85"
+          style={{ willChange: 'transform' }}
+        >
+          <img
+            src="/assets/images/gemini-svg.svg"
+            alt="City Skyline"
+            className="w-1/2 h-full object-contain object-bottom pointer-events-none flex-shrink-0"
+          />
+          <img
+            src="/assets/images/gemini-svg.svg"
+            alt="City Skyline"
+            className="w-1/2 h-full object-contain object-bottom pointer-events-none flex-shrink-0"
+          />
+        </div>
+
+        {/* White Car Anchored on the Left, Cruising Forward (Skyline Scrolls Behind) */}
+        <div
+          className="absolute bottom-1 left-4 sm:left-12 lg:left-20 z-10 h-auto pointer-events-none"
+        >
+          <RunningCar />
         </div>
       </div>
     </section>
