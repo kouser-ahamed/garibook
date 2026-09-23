@@ -93,11 +93,10 @@ export default function Services() {
             <button
               key={tab.id}
               type="button"
-              className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                isTabActive
+              className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${isTabActive
                   ? 'bg-[#0052fe] text-white shadow-md shadow-blue-500/25'
                   : 'bg-gray-100 text-slate-700 hover:bg-gray-200'
-              }`}
+                }`}
               onClick={() => {
                 setActiveTab(tab.id);
                 if (tab.id === 'rides') setActiveId('intercity');
@@ -128,28 +127,25 @@ export default function Services() {
                   key={item.id}
                   onMouseEnter={() => setActiveId(item.id)}
                   onClick={() => setActiveId(item.id)}
-                  className={`group relative overflow-hidden rounded-2xl p-6 min-h-[310px] flex flex-col justify-between transition-all duration-300 cursor-pointer ${
-                    isActive
+                  className={`group relative overflow-hidden rounded-2xl p-6 min-h-[310px] flex flex-col justify-between transition-all duration-300 cursor-pointer ${isActive
                       ? 'bg-[#0052fe] shadow-xl shadow-blue-500/20 -translate-y-1.5'
                       : 'bg-[#f8fafc] hover:bg-white hover:shadow-lg border border-slate-100 hover:-translate-y-1'
-                  }`}
+                    }`}
                 >
-                  {/* Top Car Graphic Area with White Notch */}
-                  <div className="relative w-full h-24 flex items-center justify-between">
-                    {/* White Pocket Notch on the left (Only visible/expanded when active) */}
+                  {/* Top Car Graphic Area */}
+                  <div className="relative w-full h-24 flex items-center overflow-visible">
+                    {/* Extended White Pocket Notch on the left */}
                     <div
-                      className={`absolute -left-6 top-1/2 -translate-y-1/2 h-16 w-24 bg-white rounded-r-2xl transition-all duration-300 pointer-events-none ${
-                        isActive
-                          ? 'opacity-100 scale-x-100 origin-left'
-                          : 'opacity-0 scale-x-50 origin-left'
-                      }`}
+                      className={`absolute -left-6 top-1/2 -translate-y-1/2 h-16 w-32 bg-white rounded-r-2xl transition-all duration-300 pointer-events-none z-10 ${isActive
+                          ? "opacity-100 scale-x-100 origin-left"
+                          : "opacity-0 scale-x-0 origin-left"
+                        }`}
                     />
 
-                    {/* Car Illustration with Smooth Translation */}
+                    {/* Car Illustration */}
                     <div
-                      className={`relative z-20 transition-transform duration-300 ease-out ${
-                        isActive ? 'translate-x-6' : 'translate-x-0'
-                      }`}
+                      className={`relative z-20 transition-transform duration-300 ease-out ${isActive ? "translate-x-5" : "translate-x-0"
+                        }`}
                     >
                       <img
                         src={item.image}
@@ -157,34 +153,19 @@ export default function Services() {
                         className="h-16 w-auto object-contain select-none"
                       />
                     </div>
-
-                    {/* Badge */}
-                    {item.badge && (
-                      <span
-                        className={`relative z-20 text-xs font-semibold px-2.5 py-1 rounded-full transition-all duration-300 ${
-                          isActive
-                            ? 'bg-white/20 text-white backdrop-blur-sm'
-                            : 'bg-blue-50 text-blue-600'
-                        }`}
-                      >
-                        {item.badge}
-                      </span>
-                    )}
                   </div>
 
                   {/* Text Content */}
                   <div className="mt-6 z-20">
                     <h4
-                      className={`text-xl font-bold mb-2 transition-colors duration-200 ${
-                        isActive ? 'text-white' : 'text-slate-900'
-                      }`}
+                      className={`text-xl font-bold mb-2 transition-colors duration-200 ${isActive ? 'text-white' : 'text-slate-900'
+                        }`}
                     >
                       {item.title}
                     </h4>
                     <p
-                      className={`text-sm leading-relaxed transition-colors duration-200 ${
-                        isActive ? 'text-white/90' : 'text-slate-500'
-                      }`}
+                      className={`text-sm leading-relaxed transition-colors duration-200 ${isActive ? 'text-white/90' : 'text-slate-500'
+                        }`}
                     >
                       {item.desc}
                     </p>
@@ -192,9 +173,8 @@ export default function Services() {
 
                   {/* Bottom Accent Bar */}
                   <div
-                    className={`absolute bottom-0 left-0 h-1.5 transition-all duration-300 ${
-                      isActive ? 'w-full bg-[#facc15]' : 'w-0 bg-transparent'
-                    }`}
+                    className={`absolute bottom-0 left-0 h-1.5 transition-all duration-300 ${isActive ? 'w-full bg-[#facc15]' : 'w-0 bg-transparent'
+                      }`}
                   />
                 </div>
               );
