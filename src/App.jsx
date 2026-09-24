@@ -7,6 +7,7 @@ import FreedomSection from './components/FreedomSection/FreedomSection';
 import TravelSection from './components/TravelSection/TravelSection';
 import BookingArrivalSection from './components/BookingArrival/BookingArrivalSection';
 import DriverSection from './components/DriverSection/DriverSection';
+import FeaturedNews from './components/FeaturedNews/FeaturedNews';
 import Testimonials from './components/Testimonials/Testimonials';
 import BlogSection from './components/BlogSection/BlogSection';
 import AppDownload from './components/AppDownload/AppDownload';
@@ -77,7 +78,10 @@ export default function App() {
         {/* 8. Be a Smart Driver */}
         <DriverSection />
 
-        {/* 9. News & Passenger Testimonials */}
+        {/* 9. We Featured by Top news Platforms */}
+        <FeaturedNews />
+
+        {/* 10. Passenger Speak / Testimonials */}
         <Testimonials />
 
         {/* 10. Beyond Destinations (Blogs) */}

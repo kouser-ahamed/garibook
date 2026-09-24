@@ -21,31 +21,7 @@ export default function Testimonials() {
   return (
     <section className="bg-light-gray-gb section-padding" id="reviews">
       <div className="container">
-        {/* Part 1: Featured In Top News Platforms */}
-        <div className="newsroom-header-row gsap-section-header mb-7">
-          <div>
-            <h2 className="text-[clamp(1.85rem,3.5vw,3rem)] font-bold font-heading text-dark-gb tracking-[-1px]">
-              We Featured by Top news Platforms
-            </h2>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-4 max-[1200px]:grid-cols-2 max-md:grid-cols-1 gap-5 mb-[70px]">
-          {newsPlatforms.map((news, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-5 pt-6 rounded-2xl border border-border-color shadow-[0_4px_14px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-primary-gb"
-            >
-              <div className="flex items-center gap-2.5 mb-3">
-                <Newspaper size={20} className="text-primary-gb" />
-                <span className="text-[1.05rem] font-bold text-dark-gb">{news.name}</span>
-              </div>
-              <p className="text-[0.95rem] leading-[1.5] text-[#555555] italic">"{news.headline}"</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Part 2: Passenger Speak Section */}
+        {/* Passenger Speak Section */}
         <div className="passenger-header-row gsap-section-header flex items-end justify-between mb-10 gap-7.5 max-md:flex-col max-md:items-start">
           <div className="max-w-[720px]">
             <h2 className="text-[clamp(1.85rem,3.5vw,3rem)] font-bold font-heading text-dark-gb tracking-[-1px]">
