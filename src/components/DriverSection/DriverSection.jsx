@@ -152,10 +152,10 @@ export default function DriverSection() {
         </div>
 
         {/* Big Vibrant Yellow Banner Card */}
-        <div ref={cardRef} className="smart-driver-card bg-[#efc30c] rounded-[24px] sm:rounded-[28px] mt-8 sm:mt-10 overflow-hidden shadow-[0_16px_40px_rgba(239,195,12,0.25)]">
-          <div className="grid grid-cols-[1.15fr_0.85fr] max-[991px]:grid-cols-1 items-center py-8 px-5 sm:py-10 sm:px-8 lg:py-[60px] lg:px-[70px] gap-8 sm:gap-10">
+        <div ref={cardRef} className="smart-driver-card bg-[#efc30c] rounded-[24px] sm:rounded-[28px] mt-8 sm:mt-10 overflow-hidden shadow-[0_16px_40px_rgba(239,195,12,0.25)] relative">
+          <div className="grid grid-cols-[1.1fr_0.9fr] max-[991px]:grid-cols-1 items-end pt-8 px-5 pb-0 sm:pt-10 sm:px-8 sm:pb-0 lg:pt-[54px] lg:pl-[64px] lg:pr-0 lg:pb-0 gap-8 sm:gap-10">
             {/* Left Content */}
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start pb-8 sm:pb-10 lg:pb-[54px] lg:pr-6">
               <h2 className="text-[clamp(1.85rem,4.2vw,3.8rem)] font-extrabold font-heading leading-[1.15] text-primary-gb tracking-[-1px] mb-4 sm:mb-5">
                 0% Commission <br /> 100% Freedom
               </h2>
@@ -186,15 +186,13 @@ export default function DriverSection() {
               </div>
             </div>
 
-            {/* Right Phone Mockup */}
-            <div ref={mockupRef} className="flex justify-center items-center max-[991px]:-order-1">
-              <div className="relative max-w-[240px] sm:max-w-[300px] lg:max-w-[380px] rounded-[22px] sm:rounded-[28px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.25)] border-4 border-white/40 transition-transform duration-400 hover:-translate-y-2 hover:scale-[1.02]">
-                <img
-                  src={appMockup}
-                  alt="Garibook Smart Driver App"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
+            {/* Right Driver & Phone Illustration (Anchored at Bottom, Rising to Top) */}
+            <div ref={mockupRef} className="flex justify-center lg:justify-end items-end max-[991px]:-order-1 self-end w-full leading-none overflow-hidden">
+              <img
+                src={appMockup}
+                alt="Garibook Smart Driver"
+                className="w-auto h-[320px] sm:h-[400px] lg:h-[470px] xl:h-[510px] max-w-none object-contain object-bottom block drop-shadow-md select-none pointer-events-none transition-transform duration-500 hover:scale-[1.02]"
+              />
             </div>
           </div>
         </div>

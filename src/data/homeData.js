@@ -327,7 +327,7 @@ export const homeData = {
     title: "0% Commission\n100% Freedom",
     description:
       "Keep every single Taka you earn. No middlemen, no commission deductions, and direct passenger bids.",
-    appMockup: "/assets/images/driver_app_screen.jpg",
+    appMockup: "/assets/images/driver_hires.png",
     ctaText: "Download Smart Driver App",
     ctaLink: "#driver-app"
   },

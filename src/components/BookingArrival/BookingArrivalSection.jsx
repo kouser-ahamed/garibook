@@ -226,7 +226,7 @@ export default function BookingArrivalSection() {
             ];
 
             let cardClasses =
-              `relative rounded-[18px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] cursor-pointer transition-transform duration-350 hover:-translate-y-1 group border border-white/10 ${cardThemes[idx] || 'bg-neutral-900'} `;
+              `relative rounded-[18px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] cursor-pointer transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_22px_45px_rgba(0,0,0,0.65)] hover:border-white/25 group border border-white/10 ${cardThemes[idx] || 'bg-neutral-900'} `;
             if (isItem1) {
               cardClasses +=
                 'col-span-2 max-sm:col-span-1 h-[380px] lg:h-[395px] max-[991px]:h-[300px] max-sm:h-[230px]';
@@ -239,15 +239,15 @@ export default function BookingArrivalSection() {
 
             return (
               <div key={idx} className={cardClasses}>
-                {/* Image fills the card edge-to-edge without being cut off */}
+                {/* Image fills card and zooms in strongly and smoothly on mouse hover */}
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="w-full h-full object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.35] will-change-transform"
                 />
 
-                {/* Bottom Title & Subtitle Banner */}
-                <div className="absolute bottom-0 left-0 w-full p-4 sm:p-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col gap-0.5 pointer-events-none">
+                {/* Bottom Title & Subtitle Banner with subtle hover lift */}
+                <div className="absolute bottom-0 left-0 w-full p-4 sm:p-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col gap-0.5 pointer-events-none transition-transform duration-500 group-hover:translate-y-[-2px]">
                   <h5 className="text-[1.1rem] sm:text-[1.28rem] font-bold font-heading text-white leading-snug drop-shadow-md">
                     {item.title}
                   </h5>
