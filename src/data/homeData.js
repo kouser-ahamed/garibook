@@ -292,31 +292,31 @@ export const homeData = {
       {
         title: "Explore Freely",
         subtitle: "Over 64 districts connected seamlessly",
-        image: "/assets/images/freedom_banner.jpg",
+        image: "/assets/images/bookingappimage/1.jpeg",
         colSpan: "col-lg-8"
       },
       {
         title: "Total Freedom",
         subtitle: "Direct bidding with verified drivers",
-        image: "/assets/images/travel_tour.jpg",
+        image: "/assets/images/bookingappimage/2.jpeg",
         colSpan: "col-lg-4"
       },
       {
         title: "Safe & Insured Travel",
         subtitle: "Trip insurance on every ride",
-        image: "/assets/images/travel_family.jpg",
+        image: "/assets/images/bookingappimage/3.jpeg",
         colSpan: "col-lg-4"
       },
       {
         title: "Your Preferred Car",
         subtitle: "Wide fleet from Sedan to Luxury SUV",
-        image: "/assets/images/business_fleet.jpg",
+        image: "/assets/images/bookingappimage/4.jpeg",
         colSpan: "col-lg-4"
       },
       {
         title: "Smooth Journey",
         subtitle: "Guaranteed comfort and punctuality",
-        image: "/assets/images/travel_airport.jpg",
+        image: "/assets/images/bookingappimage/5.jpeg",
         colSpan: "col-lg-4"
       }
     ]

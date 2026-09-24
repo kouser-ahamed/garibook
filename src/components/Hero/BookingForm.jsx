@@ -24,6 +24,7 @@ export default function BookingForm() {
   // Form states
   const [selectedCar, setSelectedCar] = useState(null);
   const [carDropdownOpen, setCarDropdownOpen] = useState(false);
+  const [carPlacement, setCarPlacement] = useState({ placement: 'bottom', maxListHeight: 260 });
   const carDropdownRef = useRef(null);
 
   const [pickupLocation, setPickupLocation] = useState('');
@@ -34,18 +35,9 @@ export default function BookingForm() {
 
   const [selectedAirport, setSelectedAirport] = useState(null);
   const [airportDropdownOpen, setAirportDropdownOpen] = useState(false);
+  const [airportPlacement, setAirportPlacement] = useState({ placement: 'bottom', maxListHeight: 260 });
   const airportRef = useRef(null);
   const dropoffAirportRef = useRef(null);
-
-  const handleSelectAirport = (airport) => {
-    setSelectedAirport(airport);
-    setAirportDropdownOpen(false);
-    if (airportTripType === 'fromAirport') {
-      clearError('pickup');
-    } else {
-      clearError('dropoff');
-    }
-  };
 
   const [pickupDateTime, setPickupDateTime] = useState('');
   const [returnDateTime, setReturnDateTime] = useState('');
@@ -68,6 +60,91 @@ export default function BookingForm() {
       return updated;
     });
   };
+
+  const handleSelectAirport = (airport) => {
+    setSelectedAirport(airport);
+    setAirportDropdownOpen(false);
+    if (airportTripType === 'fromAirport') {
+      clearError('pickup');
+    } else {
+      clearError('dropoff');
+    }
+  };
+
+  // Compute whether to open dropdown at bottom (normal) or top (when more space on top) with dynamic max height
+  const computeDropdownState = (el) => {
+    if (!el) return { placement: 'bottom', maxListHeight: 260 };
+    const rect = el.getBoundingClientRect();
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const spaceAbove = rect.top;
+
+    // Minimum space needed for full dropdown without feeling cramped
+    const neededHeight = 330;
+
+    let placement = 'bottom';
+    // If bottom space is insufficient and top has more space, open on top
+    if (spaceBelow < neededHeight && spaceAbove > spaceBelow) {
+      placement = 'top';
+    } else {
+      placement = 'bottom';
+    }
+
+    // Dynamic inner list height guarantee so dropdown NEVER exceeds viewport edges
+    const availableSpace = placement === 'bottom' ? spaceBelow : spaceAbove;
+    // Leave at least 20px clearance from screen edge (padding + borders + margins = ~72px)
+    const maxAllowed = Math.floor(availableSpace - 72);
+    // Clamp between min usable height 120px and default 260px
+    const maxListHeight = Math.max(120, Math.min(260, maxAllowed));
+
+    return { placement, maxListHeight };
+  };
+
+  const handleToggleCarDropdown = () => {
+    if (!carDropdownOpen && carDropdownRef.current) {
+      setCarPlacement(computeDropdownState(carDropdownRef.current));
+    }
+    setCarDropdownOpen((prev) => !prev);
+  };
+
+  const handleToggleAirportDropdown = () => {
+    const el = airportTripType === 'fromAirport' ? airportRef.current : dropoffAirportRef.current;
+    if (!airportDropdownOpen && el) {
+      setAirportPlacement(computeDropdownState(el));
+    }
+    setAirportDropdownOpen((prev) => !prev);
+  };
+
+  // Re-adjust placement & max-height dynamically on scroll / resize while dropdown is open
+  useEffect(() => {
+    if (!carDropdownOpen) return;
+    const handleScrollOrResize = () => {
+      if (carDropdownRef.current) {
+        setCarPlacement(computeDropdownState(carDropdownRef.current));
+      }
+    };
+    window.addEventListener('scroll', handleScrollOrResize, { passive: true });
+    window.addEventListener('resize', handleScrollOrResize, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScrollOrResize);
+      window.removeEventListener('resize', handleScrollOrResize);
+    };
+  }, [carDropdownOpen]);
+
+  useEffect(() => {
+    if (!airportDropdownOpen) return;
+    const handleScrollOrResize = () => {
+      const el = airportTripType === 'fromAirport' ? airportRef.current : dropoffAirportRef.current;
+      if (el) {
+        setAirportPlacement(computeDropdownState(el));
+      }
+    };
+    window.addEventListener('scroll', handleScrollOrResize, { passive: true });
+    window.addEventListener('resize', handleScrollOrResize, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScrollOrResize);
+      window.removeEventListener('resize', handleScrollOrResize);
+    };
+  }, [airportDropdownOpen, airportTripType]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -247,7 +324,7 @@ export default function BookingForm() {
 
               <div
                 className="flex items-center justify-between cursor-pointer pt-1 group select-none min-h-[28px]"
-                onClick={() => setCarDropdownOpen(!carDropdownOpen)}
+                onClick={handleToggleCarDropdown}
               >
                 <div className="flex items-center gap-2 truncate">
                   {selectedCar?.icon && (
@@ -276,16 +353,25 @@ export default function BookingForm() {
                 </p>
               )}
 
-              {/* Vehicle Selection Modal / Popover (Opens upwards to prevent overlap) */}
+              {/* Vehicle Selection Modal / Popover (Card width equals field size: w-full min-w-full) */}
               {carDropdownOpen && (
-                <div className="absolute bottom-full left-0 mb-3 z-[100] w-[300px] sm:w-[340px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-3 animate-modalPop origin-bottom-left">
+                <div
+                  className={`absolute ${
+                    carPlacement.placement === 'top'
+                      ? 'bottom-full mb-3 origin-bottom-left'
+                      : 'top-full mt-3 origin-top-left'
+                  } left-0 w-full min-w-full z-[100] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-3 animate-modalPop`}
+                >
                   <div className="px-2 py-1.5 mb-1">
                     <span className="text-[11px] font-bold text-gray-400 tracking-wider uppercase">
                       AVAILABLE FLEET
                     </span>
                   </div>
 
-                  <div className="max-h-[260px] overflow-y-auto space-y-2 pr-1 scrollbar-thin scrollbar-thumb-gray-300">
+                  <div
+                    style={{ maxHeight: `${carPlacement.maxListHeight || 260}px` }}
+                    className="overflow-y-auto space-y-2 pr-1 scrollbar-thin scrollbar-thumb-gray-300"
+                  >
                     {cars.map((car) => {
                       const isCarSelected = selectedCar?.id === car.id;
                       return (
@@ -378,7 +464,7 @@ export default function BookingForm() {
                   </label>
                   <div
                     className="flex items-center justify-between cursor-pointer pt-1 group select-none min-h-[28px]"
-                    onClick={() => setAirportDropdownOpen(!airportDropdownOpen)}
+                    onClick={handleToggleAirportDropdown}
                   >
                     <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 truncate">
                       {selectedAirport?.nameEn || selectedAirport?.name || 'Select Airport'}
@@ -392,7 +478,13 @@ export default function BookingForm() {
                   </div>
 
                   {airportDropdownOpen && (
-                    <div className="absolute bottom-full left-0 mb-3 z-[100] w-[320px] sm:w-[360px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 animate-modalPop origin-bottom-left">
+                    <div
+                      className={`absolute ${
+                        airportPlacement.placement === 'top'
+                          ? 'bottom-full mb-3 origin-bottom-left'
+                          : 'top-full mt-3 origin-top-left'
+                      } left-0 w-full min-w-full z-[100] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 animate-modalPop`}
+                    >
                       <div className="px-2.5 py-1.5 mb-1.5 flex items-center justify-between border-b border-gray-100">
                         <span className="text-[11px] font-bold text-gray-400 tracking-wider uppercase">
                           SELECT AIRPORT
@@ -401,7 +493,10 @@ export default function BookingForm() {
                           Bangladesh
                         </span>
                       </div>
-                      <div className="max-h-[260px] overflow-y-auto space-y-1.5 pr-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+                      <div
+                        style={{ maxHeight: `${airportPlacement.maxListHeight || 260}px` }}
+                        className="overflow-y-auto space-y-1.5 pr-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
+                      >
                         {airports.map((airport) => {
                           const isAirportSelected =
                             selectedAirport?.id === airport.id ||
@@ -531,7 +626,7 @@ export default function BookingForm() {
                   </label>
                   <div
                     className="flex items-center justify-between cursor-pointer pt-1 group select-none min-h-[28px]"
-                    onClick={() => setAirportDropdownOpen(!airportDropdownOpen)}
+                    onClick={handleToggleAirportDropdown}
                   >
                     <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 truncate">
                       {selectedAirport?.nameEn || selectedAirport?.name || 'Select Airport'}
@@ -545,7 +640,13 @@ export default function BookingForm() {
                   </div>
 
                   {airportDropdownOpen && (
-                    <div className="absolute bottom-full left-0 mb-3 z-[100] w-[320px] sm:w-[360px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 animate-modalPop origin-bottom-left">
+                    <div
+                      className={`absolute ${
+                        airportPlacement.placement === 'top'
+                          ? 'bottom-full mb-3 origin-bottom-left'
+                          : 'top-full mt-3 origin-top-left'
+                      } left-0 w-full min-w-full z-[100] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 animate-modalPop`}
+                    >
                       <div className="px-2.5 py-1.5 mb-1.5 flex items-center justify-between border-b border-gray-100">
                         <span className="text-[11px] font-bold text-gray-400 tracking-wider uppercase">
                           SELECT AIRPORT
@@ -554,7 +655,10 @@ export default function BookingForm() {
                           Bangladesh
                         </span>
                       </div>
-                      <div className="max-h-[260px] overflow-y-auto space-y-1.5 pr-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+                      <div
+                        style={{ maxHeight: `${airportPlacement.maxListHeight || 260}px` }}
+                        className="overflow-y-auto space-y-1.5 pr-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
+                      >
                         {airports.map((airport) => {
                           const isAirportSelected =
                             selectedAirport?.id === airport.id ||

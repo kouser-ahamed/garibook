@@ -217,30 +217,41 @@ export default function BookingArrivalSection() {
             const isItem1 = idx === 0;
             const isItem2 = idx === 1;
 
+            const cardThemes = [
+              'bg-[#1056ea]', // 1. Explore Freely (Blue)
+              'bg-[#eaf0f8]', // 2. Total Freedom (Light Blue-Gray)
+              'bg-[#f0f2fb]', // 3. Safe & Insured Travel (Soft Lavender)
+              'bg-white',     // 4. Your Preferred Car (Pure White)
+              'bg-[#f7f0d6]', // 5. Smooth Journey (Soft Warm Cream)
+            ];
+
             let cardClasses =
-              'relative rounded-[18px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] cursor-pointer transition-transform duration-350 hover:-translate-y-1 group ';
+              `relative rounded-[18px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] cursor-pointer transition-transform duration-350 hover:-translate-y-1 group border border-white/10 ${cardThemes[idx] || 'bg-neutral-900'} `;
             if (isItem1) {
               cardClasses +=
-                'col-span-2 max-sm:col-span-1 h-[340px] max-[991px]:h-[280px] max-sm:h-[220px]';
+                'col-span-2 max-sm:col-span-1 h-[380px] lg:h-[395px] max-[991px]:h-[300px] max-sm:h-[230px]';
             } else if (isItem2) {
               cardClasses +=
-                'col-span-1 max-[991px]:col-span-2 max-sm:col-span-1 h-[340px] max-[991px]:h-[260px] max-sm:h-[220px]';
+                'col-span-1 max-[991px]:col-span-2 max-sm:col-span-1 h-[380px] lg:h-[395px] max-[991px]:h-[340px] max-sm:h-[320px]';
             } else {
-              cardClasses += 'col-span-1 h-[280px] max-sm:h-[220px]';
+              cardClasses += 'col-span-1 h-[340px] lg:h-[360px] max-[991px]:h-[320px] max-sm:h-[300px]';
             }
 
             return (
               <div key={idx} className={cardClasses}>
+                {/* Image fills the card edge-to-edge without being cut off */}
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105"
+                  className="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 bg-[linear-gradient(180deg,transparent_0%,rgba(0,0,0,0.85)_100%)] flex flex-col gap-1">
-                  <h5 className="text-[1.15rem] sm:text-[1.35rem] font-bold font-heading text-white leading-snug">
+
+                {/* Bottom Title & Subtitle Banner */}
+                <div className="absolute bottom-0 left-0 w-full p-4 sm:p-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex flex-col gap-0.5 pointer-events-none">
+                  <h5 className="text-[1.1rem] sm:text-[1.28rem] font-bold font-heading text-white leading-snug drop-shadow-md">
                     {item.title}
                   </h5>
-                  <p className="text-xs sm:text-[0.95rem] text-white/80">{item.subtitle}</p>
+                  <p className="text-xs sm:text-[0.92rem] text-white/85 drop-shadow-sm">{item.subtitle}</p>
                 </div>
               </div>
             );
