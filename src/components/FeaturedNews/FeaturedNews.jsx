@@ -243,34 +243,34 @@ export const FeaturedNews = () => {
       className="bg-white py-16 sm:py-24 border-t border-slate-100 overflow-hidden"
       id="featured-news"
     >
-      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Layout */}
-        <div className="flex items-end justify-between mb-10 sm:mb-14 gap-6">
+        <div className="flex items-end justify-between mb-8 sm:mb-14 gap-4 sm:gap-6">
           <div ref={headingRef}>
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 leading-[1.12] tracking-tight font-heading">
-              We Featured by Top news <br /> Platforms
+            <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-slate-900 leading-[1.12] tracking-tight font-heading">
+              We Featured by Top news <br className="hidden sm:inline" /> Platforms
             </h2>
           </div>
 
           {/* Navigation Controls */}
-          <div ref={controlsRef} className="flex items-center gap-2.5 sm:gap-3">
+          <div ref={controlsRef} className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
               type="button"
               onClick={handlePrev}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-slate-50 active:scale-95 shadow-sm"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-slate-50 active:scale-95 shadow-sm"
               aria-label="Previous News"
               title="Previous News"
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={18} className="sm:w-5 sm:h-5" />
             </button>
             <button
               type="button"
               onClick={handleNext}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-slate-50 active:scale-95 shadow-sm"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-slate-50 active:scale-95 shadow-sm"
               aria-label="Next News"
               title="Next News"
             >
-              <ArrowRight size={20} />
+              <ArrowRight size={18} className="sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>

@@ -32,7 +32,7 @@ export default function App() {
         if (id && !isNaN(Number(id))) {
           setActiveBlogId(Number(id));
         }
-      } else if (!hash || hash === '#blogs' || hash === '#' || hash === '#home') {
+      } else {
         setActiveBlogId(null);
       }
     };
@@ -146,11 +146,11 @@ export default function App() {
       {showScrollTop && (
         <button
           type="button"
-          className="scroll-to-top-btn fixed bottom-9 right-9 w-[52px] h-[52px] rounded-full bg-primary-gb text-white flex items-center justify-center shadow-[0_8px_24px_rgba(14,82,255,0.4)] z-[998] hover:bg-primary-gb-hover hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer"
+          className="scroll-to-top-btn fixed bottom-5 right-5 sm:bottom-8 sm:right-8 w-11 h-11 sm:w-[52px] sm:h-[52px] rounded-full bg-primary-gb text-white flex items-center justify-center shadow-[0_8px_24px_rgba(14,82,255,0.4)] z-[998] hover:bg-primary-gb-hover hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer"
           onClick={scrollToTop}
           aria-label="Scroll to top"
         >
-          <ArrowUp size={22} />
+          <ArrowUp size={20} className="sm:w-[22px] sm:h-[22px]" />
         </button>
       )}
     </div>

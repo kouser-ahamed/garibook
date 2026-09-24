@@ -155,7 +155,7 @@ export default function DateTimePickerPopover({
 
       {/* Ultra-Compact Two-Column Popover (Strictly Matching Image 2 specs) */}
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 z-[100] bg-white border border-gray-200 rounded-xl shadow-2xl p-2 w-[240px] sm:w-[260px] text-[11px] leading-tight select-none animate-modalPop">
+        <div className="absolute top-full left-0 sm:left-auto sm:right-0 mt-2 z-[100] bg-white border border-gray-200 rounded-xl shadow-2xl p-2 w-[240px] sm:w-[260px] max-w-[calc(100vw-48px)] text-[11px] leading-tight select-none animate-modalPop">
           <div className="bg-gray-100/70 p-1.5 rounded">
             <div className="flex divide-x divide-gray-200 gap-1">
               {/* Left Side: Ultra-Compact Month Calendar (Width ~65%) */}

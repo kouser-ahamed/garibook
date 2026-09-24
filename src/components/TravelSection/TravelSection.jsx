@@ -112,13 +112,13 @@ export default function TravelSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20"
+      className="w-full bg-white pt-10 sm:pt-12 lg:pt-14 pb-14 sm:pb-20"
       id="travel"
     >
-      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div ref={headingRef}>
-          <h2 className="text-[clamp(1.85rem,3.5vw,3rem)] font-bold font-heading text-dark-gb tracking-[-1px]">
+          <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-bold font-heading text-dark-gb tracking-[-1px]">
             More Than Miles — <br className="hidden md:block" /> We Bring People Together
           </h2>
         </div>
@@ -126,12 +126,12 @@ export default function TravelSection() {
         {/* 3 Travel Scenario Cards */}
         <div
           ref={cardsRef}
-          className="travel-scenarios-grid grid grid-cols-3 max-[1024px]:grid-cols-2 max-sm:grid-cols-1 gap-7 max-sm:gap-5 mt-[36px] sm:mt-[42px]"
+          className="travel-scenarios-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 mt-[32px] sm:mt-[42px]"
         >
           {cards.map((card, idx) => (
             <div
               key={idx}
-              className="travel-scenario-card group relative rounded-[20px] overflow-hidden h-[420px] max-[1024px]:h-[360px] max-sm:h-[320px] cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:shadow-[0_18px_36px_rgba(0,0,0,0.16)]"
+              className="travel-scenario-card group relative rounded-[20px] overflow-hidden h-[300px] sm:h-[360px] lg:h-[420px] cursor-pointer shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:shadow-[0_18px_36px_rgba(0,0,0,0.16)]"
             >
               <div className="relative w-full h-full">
                 <img
@@ -141,11 +141,11 @@ export default function TravelSection() {
                 />
                 <div className="absolute inset-0 w-full h-full bg-[linear-gradient(180deg,rgba(0,0,0,0.65)_0%,rgba(0,0,0,0.1)_45%,rgba(0,0,0,0.75)_100%)]" />
               </div>
-              <div className="absolute inset-0 w-full h-full p-8 max-sm:p-5 flex flex-col justify-between z-[2] pointer-events-none">
-                <h4 className="text-[1.85rem] max-sm:text-[1.55rem] font-bold font-heading text-white tracking-[-0.5px] drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
+              <div className="absolute inset-0 w-full h-full p-5 sm:p-7 lg:p-8 flex flex-col justify-between z-[2] pointer-events-none">
+                <h4 className="text-[1.5rem] sm:text-[1.7rem] lg:text-[1.85rem] font-bold font-heading text-white tracking-[-0.5px] drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)] leading-tight">
                   {card.title}
                 </h4>
-                <p className="text-base font-medium text-white/90 leading-[1.4] drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+                <p className="text-sm sm:text-base font-medium text-white/90 leading-[1.4] drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
                   {card.tagline}
                 </p>
               </div>

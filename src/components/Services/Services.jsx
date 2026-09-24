@@ -183,19 +183,19 @@ export default function Services() {
 
   const renderServiceDetail = (data) => (
     <div className="tab-pane-fade animate-modalPop">
-      <div className="grid grid-cols-2 max-[900px]:grid-cols-1 gap-[50px] max-[900px]:gap-[30px] items-center bg-[#f8fbff] rounded-[24px] p-12 max-[900px]:p-7 border border-[#dee7f2] shadow-[0_8px_30px_rgba(14,82,255,0.06)]">
+      <div className="grid grid-cols-2 max-[900px]:grid-cols-1 gap-8 lg:gap-[50px] items-center bg-[#f8fbff] rounded-[24px] p-5 sm:p-8 lg:p-12 border border-[#dee7f2] shadow-[0_8px_30px_rgba(14,82,255,0.06)]">
         {/* Left Column: Headline, Paragraph, Points, Learn More CTA */}
         <div className="flex flex-col items-start">
-          <h3 className="text-[clamp(1.9rem,2.8vw,2.6rem)] font-bold font-heading text-dark-gb mb-4 leading-[1.2]">
+          <h3 className="text-[clamp(1.6rem,2.8vw,2.6rem)] font-bold font-heading text-dark-gb mb-3 sm:mb-4 leading-[1.2]">
             {data.title}
           </h3>
-          <p className="text-[1.1rem] leading-[1.65] text-[#555555] mb-7">
+          <p className="text-sm sm:text-base lg:text-[1.1rem] leading-[1.65] text-[#555555] mb-6 sm:mb-7">
             {data.description}
           </p>
 
-          <div className="flex flex-col gap-3.5 mb-8 w-full">
+          <div className="flex flex-col gap-3 sm:gap-3.5 mb-6 sm:mb-8 w-full">
             {data.points.map((pt, i) => (
-              <div key={i} className="flex items-center gap-3 text-[1.02rem] font-semibold text-[#1e293b]">
+              <div key={i} className="flex items-center gap-2.5 sm:gap-3 text-sm sm:text-[1.02rem] font-semibold text-[#1e293b]">
                 <div className="w-5 h-5 rounded-full bg-primary-gb/15 flex items-center justify-center flex-shrink-0">
                   <CheckCircle size={15} className="text-primary-gb" />
                 </div>
@@ -206,7 +206,7 @@ export default function Services() {
 
           <a
             href={data.link}
-            className="group inline-flex items-center justify-between gap-3 bg-primary-gb text-white font-bold text-[1.05rem] py-3.5 px-8 rounded-full shadow-[0_4px_16px_rgba(14,82,255,0.28)] hover:bg-primary-gb-hover hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(14,82,255,0.38)] transition-all duration-300"
+            className="group inline-flex items-center justify-center gap-3 bg-primary-gb text-white font-bold text-sm sm:text-[1.05rem] py-3 sm:py-3.5 px-6 sm:px-8 rounded-full shadow-[0_4px_16px_rgba(14,82,255,0.28)] hover:bg-primary-gb-hover hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(14,82,255,0.38)] transition-all duration-300 w-full sm:w-auto"
           >
             <span>Learn More</span>
             <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -218,7 +218,7 @@ export default function Services() {
           <img
             src={data.image}
             alt={data.title}
-            className="w-full h-[380px] max-[900px]:h-[260px] object-cover rounded-2xl shadow-[0_16px_36px_rgba(0,0,0,0.12)] transition-transform duration-700 ease-out group-hover:scale-105"
+            className="w-full h-[220px] sm:h-[300px] lg:h-[380px] object-cover rounded-2xl shadow-[0_16px_36px_rgba(0,0,0,0.12)] transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
       </div>
@@ -227,7 +227,7 @@ export default function Services() {
 
   return (
     <section ref={sectionWrapperRef} className="w-full bg-white py-12 sm:py-16 lg:py-20" id="services">
-      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section Header */}
         <h2
           ref={ourServicesRef}
@@ -237,14 +237,14 @@ export default function Services() {
         </h2>
 
         {/* Category Filter Pills */}
-        <div ref={pillsRef} className="flex flex-wrap items-center gap-2.5 sm:gap-4 mb-6 sm:mb-8" role="tablist">
+        <div ref={pillsRef} className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-8" role="tablist">
           {tabs.map((tab) => {
             const isTabActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 type="button"
-                className={`px-5 sm:px-7 py-2 sm:py-3 rounded-2xl text-xs sm:text-base font-bold transition-all cursor-pointer ${isTabActive
+                className={`px-4 sm:px-7 py-2 sm:py-3 rounded-2xl text-xs sm:text-base font-bold transition-all cursor-pointer ${isTabActive
                   ? 'bg-[#0052fe] text-white shadow-sm'
                   : 'bg-[#eaedf0] text-slate-700 hover:bg-slate-200'
                   }`}

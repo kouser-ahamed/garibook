@@ -25,8 +25,8 @@ export default function BlogDetail({ blogId, onBack, onSelectBlog }) {
   };
 
   return (
-    <article className="min-h-screen bg-slate-50/60 pb-20 pt-[140px] sm:pt-[160px] lg:pt-[176px]">
-      <div className="max-w-[1040px] mx-auto px-5 sm:px-8">
+    <article className="min-h-screen bg-slate-50/60 pb-16 sm:pb-20 pt-[130px] sm:pt-[150px] lg:pt-[176px]">
+      <div className="max-w-[1040px] mx-auto px-4 sm:px-8">
         {/* Navigation Breadcrumb & Back Button */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <button
@@ -61,7 +61,7 @@ export default function BlogDetail({ blogId, onBack, onSelectBlog }) {
         </div>
 
         {/* Article Header Card */}
-        <header className="bg-white rounded-[28px] p-6 sm:p-10 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.04)] mb-8">
+        <header className="bg-white rounded-[20px] sm:rounded-[28px] p-5 sm:p-8 lg:p-10 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.04)] mb-6 sm:mb-8">
           {/* Category & Read Time */}
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0052fe]/10 text-primary-gb text-xs sm:text-sm font-bold">
@@ -119,7 +119,7 @@ export default function BlogDetail({ blogId, onBack, onSelectBlog }) {
         </div>
 
         {/* Article Body Content */}
-        <div className="bg-white rounded-[28px] p-6 sm:p-12 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.04)] text-slate-700">
+        <div className="bg-white rounded-[20px] sm:rounded-[28px] p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.04)] text-slate-700">
           {blog.sections && blog.sections.length > 0 ? (
             <div className="space-y-6">
               {blog.sections.map((section, idx) => {
@@ -257,23 +257,23 @@ export default function BlogDetail({ blogId, onBack, onSelectBlog }) {
           )}
 
           {/* Garibook Travel Booking Banner */}
-          <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-900 to-indigo-900 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+          <div className="mt-10 sm:mt-12 p-5 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-900 to-indigo-900 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
             <div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider mb-2">
                 <Car size={14} /> নিরাপদ ইন্টারসিটি ভ্রমণ
               </span>
-              <h3 className="text-xl sm:text-2xl font-black font-heading">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-black font-heading leading-snug">
                 পরিকল্পিত ভ্রমণের জন্য আজই গাড়ি বুক করুন
               </h3>
-              <p className="text-sm sm:text-base text-blue-100 mt-1 max-w-lg">
+              <p className="text-xs sm:text-sm lg:text-base text-blue-100 mt-1 max-w-lg">
                 Garibook-এ পাচ্ছেন ভেরিফাইড চালক, নো-হিডেন চার্জ এবং ৪ সিট থেকে ১১ সিটের আধুনিক সব গাড়ি।
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto shrink-0">
               <button
                 type="button"
                 onClick={onBack}
-                className="px-6 py-3 rounded-xl bg-primary-gb hover:bg-blue-600 text-white font-bold text-sm transition-all shadow-md active:scale-95 cursor-pointer"
+                className="px-6 py-3 rounded-xl bg-primary-gb hover:bg-blue-600 text-white font-bold text-sm transition-all shadow-md active:scale-95 cursor-pointer text-center"
               >
                 গাড়ি বুকিং করুন
               </button>
@@ -281,7 +281,7 @@ export default function BlogDetail({ blogId, onBack, onSelectBlog }) {
                 href="https://garibook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-all border border-white/20"
+                className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-all border border-white/20 text-center"
               >
                 ভিজিট Garibook
               </a>
@@ -312,7 +312,7 @@ export default function BlogDetail({ blogId, onBack, onSelectBlog }) {
                   onClick={() => onSelectBlog ? onSelectBlog(rel.id) : (window.location.hash = `#blog-${rel.id}`)}
                   className="group bg-white rounded-2xl border border-slate-200 p-4 hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col sm:flex-row gap-4 hover:-translate-y-1"
                 >
-                  <div className="w-full sm:w-44 h-36 rounded-xl overflow-hidden bg-slate-100 shrink-0">
+                  <div className="w-full sm:w-44 h-44 sm:h-36 rounded-xl overflow-hidden bg-slate-100 shrink-0">
                     <img
                       src={rel.image}
                       alt={rel.title}

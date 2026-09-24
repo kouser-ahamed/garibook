@@ -160,12 +160,12 @@ export default function BlogSection({ onSelectBlog }) {
     <section ref={sectionRef} className="bg-white section-padding overflow-hidden" id="blogs">
       <div className="container">
         {/* Section Header */}
-        <div className="blog-header-row flex items-end justify-between mb-[45px] gap-6 max-md:flex-col max-md:items-start">
+        <div className="blog-header-row flex items-start sm:items-end justify-between mb-8 sm:mb-[45px] gap-4 sm:gap-6 flex-col sm:flex-row">
           <div ref={headingRef} className="max-w-[680px]">
-            <h2 className="text-[clamp(1.85rem,3.5vw,3rem)] font-bold font-heading text-dark-gb tracking-[-1px]">
+            <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-bold font-heading text-dark-gb tracking-[-1px]">
               Beyond Destinations
             </h2>
-            <p className="text-[1.15rem] leading-[1.6] text-[#666666] mt-3">
+            <p className="text-sm sm:text-base lg:text-[1.15rem] leading-[1.6] text-[#666666] mt-2 sm:mt-3">
               Discover travel hacks, guides, and inspirations for your next intercity trip with Garibook.
             </p>
           </div>
@@ -176,10 +176,10 @@ export default function BlogSection({ onSelectBlog }) {
                 e.preventDefault();
                 if (onSelectBlog) onSelectBlog(blogs[0]?.id || 1);
               }}
-              className="group inline-flex items-center gap-2.5 text-[1.2rem] font-bold text-primary-gb transition-transform duration-200 hover:translate-x-1 cursor-pointer"
+              className="group inline-flex items-center gap-2 text-base sm:text-[1.15rem] font-bold text-primary-gb transition-transform duration-200 hover:translate-x-1 cursor-pointer"
             >
               <span>Show All Blogs</span>
-              <ArrowRight size={20} className="transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
             </a>
           </div>
         </div>
@@ -187,7 +187,7 @@ export default function BlogSection({ onSelectBlog }) {
         {/* Blog Cards Grid */}
         <div
           ref={cardsRef}
-          className="blogs-grid grid grid-cols-3 max-[991px]:grid-cols-2 max-sm:grid-cols-1 gap-[30px]"
+          className="blogs-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-[30px]"
         >
           {blogs.map((blog, idx) => (
             <div key={blog.id || idx} className="blog-card-wrapper h-full flex flex-col">
@@ -195,7 +195,7 @@ export default function BlogSection({ onSelectBlog }) {
                 onClick={(e) => handleOpenBlog(e, blog.id)}
                 className="blog-card-item group bg-white rounded-[18px] overflow-hidden border border-border-color shadow-[0_6px_20px_rgba(0,0,0,0.05)] flex flex-col flex-grow transition-all duration-350 hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(0,0,0,0.1)] hover:border-[#b0c4de] cursor-pointer select-none"
               >
-                <div className="relative w-full h-[240px] overflow-hidden bg-slate-100">
+                <div className="relative w-full h-[200px] sm:h-[240px] overflow-hidden bg-slate-100">
                   <img
                     src={blog.image}
                     alt={blog.title}
@@ -206,25 +206,25 @@ export default function BlogSection({ onSelectBlog }) {
                       e.currentTarget.src = "/assets/images/travel_tour.jpg";
                     }}
                   />
-                  <span className="absolute top-4 left-4 bg-primary-gb/90 text-white py-1.5 px-3.5 rounded-md text-[0.8rem] font-semibold backdrop-blur-sm z-10">
+                  <span className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 bg-primary-gb/90 text-white py-1 px-3 sm:py-1.5 sm:px-3.5 rounded-md text-[0.75rem] sm:text-[0.8rem] font-semibold backdrop-blur-sm z-10">
                     {blog.category}
                   </span>
                 </div>
 
-                <div className="p-6 pt-[26px] flex flex-col flex-grow">
-                  <div className="flex items-center gap-4.5 mb-3">
-                    <span className="inline-flex items-center gap-1.5 text-[0.85rem] text-[#888888] font-medium">
-                      <Calendar size={14} /> {blog.date}
+                <div className="p-5 sm:p-6 pt-5 sm:pt-[26px] flex flex-col flex-grow">
+                  <div className="flex items-center gap-3 sm:gap-4.5 mb-2.5 sm:mb-3">
+                    <span className="inline-flex items-center gap-1.5 text-xs sm:text-[0.85rem] text-[#888888] font-medium">
+                      <Calendar size={13} /> {blog.date}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-[0.85rem] text-[#888888] font-medium">
-                      <Clock size={14} /> {blog.readTime}
+                    <span className="inline-flex items-center gap-1.5 text-xs sm:text-[0.85rem] text-[#888888] font-medium">
+                      <Clock size={13} /> {blog.readTime}
                     </span>
                   </div>
 
-                  <h4 className="text-[1.3rem] font-bold font-heading leading-[1.35] text-dark-gb mb-3 group-hover:text-primary-gb transition-colors">
+                  <h4 className="text-[1.15rem] sm:text-[1.3rem] font-bold font-heading leading-[1.35] text-dark-gb mb-2.5 sm:mb-3 group-hover:text-primary-gb transition-colors">
                     {blog.title}
                   </h4>
-                  <p className="text-[0.95rem] leading-[1.55] text-[#666666] mb-5 flex-grow line-clamp-3">
+                  <p className="text-xs sm:text-[0.95rem] leading-[1.55] text-[#666666] mb-4 sm:mb-5 flex-grow line-clamp-3">
                     {blog.desc || blog.excerpt}
                   </p>
 

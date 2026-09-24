@@ -130,27 +130,27 @@ export default function Statistics() {
   return (
     <section
       ref={sectionRef}
-      id="statistics"
+      id="about"
       className="w-full bg-gradient-to-r from-[#0052cc] to-[#003d99] relative overflow-hidden overflow-x-hidden pt-44 sm:pt-48 lg:pt-52"
     >
       {/* Content Container */}
-      <div className="max-w-[1420px] mx-auto px-6 lg:px-8 relative z-10 pt-24 sm:pt-32 lg:pt-40">
+      <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 sm:pt-32 lg:pt-40">
         {/* Section Title with Overflow Masking for Clean Reveal */}
         <div className="w-full text-left self-start mt-8 sm:mt-10 lg:mt-14 overflow-hidden">
           <h2
             ref={headingRef}
             style={{ opacity: 0, transform: 'translateY(130px)' }}
-            className="text-4xl sm:text-5xl lg:text-[62px] xl:text-[64px] font-black text-white leading-[1.08] tracking-tight text-left"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] xl:text-[64px] font-black text-white leading-[1.12] sm:leading-[1.08] tracking-tight text-left"
           >
             From Everyday Rides to Meaningful <br className="hidden sm:inline" /> Journeys
           </h2>
         </div>
 
         {/* Statistics Row (Far Right Bottom) */}
-        <div className="flex justify-end mt-12 sm:mt-16 lg:mt-24 translate-y-4 lg:translate-y-6">
+        <div className="flex justify-start sm:justify-end mt-10 sm:mt-16 lg:mt-24 translate-y-2 sm:translate-y-4 lg:translate-y-6">
           <div
             ref={statsContainerRef}
-            className="flex flex-wrap sm:flex-nowrap items-end gap-4 sm:gap-6 lg:gap-7 lg:mr-0"
+            className="grid grid-cols-2 sm:flex sm:flex-nowrap items-end gap-x-6 gap-y-4 sm:gap-6 lg:gap-7 lg:mr-0"
           >
             {statistics.map((stat, idx) => (
               <div
@@ -164,7 +164,7 @@ export default function Statistics() {
                 >
                   0{stat.suffix}
                 </span>
-                <span className="text-white/90 text-xs sm:text-sm lg:text-[15px] font-medium mt-2 whitespace-nowrap">
+                <span className="text-white/90 text-xs sm:text-sm lg:text-[15px] font-medium mt-1.5 sm:mt-2 whitespace-nowrap">
                   {stat.label}
                 </span>
               </div>

@@ -154,15 +154,15 @@ export default function FreedomSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-black py-14 sm:py-16 text-white overflow-hidden"
+      className="w-full bg-black py-12 sm:py-16 text-white overflow-hidden"
       id="freedom"
     >
-      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Step 1: Heading */}
         <h2
           ref={headingRef}
           style={{ opacity: 0 }}
-          className="text-3xl sm:text-4xl lg:text-[42px] font-black text-white tracking-tight mb-6 sm:mb-8"
+          className="text-2xl sm:text-4xl lg:text-[42px] font-black text-white tracking-tight mb-5 sm:mb-8"
         >
           {heading || 'Freedom in Every Journey'}
         </h2>
@@ -171,7 +171,7 @@ export default function FreedomSection() {
         <div
           ref={bannerRef}
           style={{ opacity: 0 }}
-          className="w-full h-[280px] sm:h-[360px] lg:h-[420px] rounded-3xl overflow-hidden shadow-2xl mb-8 sm:mb-10"
+          className="w-full h-[200px] sm:h-[300px] lg:h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mb-7 sm:mb-10"
         >
           <img
             src={bannerImage || '/assets/images/freedom_banner.jpg'}
@@ -184,20 +184,20 @@ export default function FreedomSection() {
         <div className="w-full flex justify-end">
           <div
             ref={featuresRef}
-            className="flex flex-col sm:flex-row items-start justify-end gap-8 sm:gap-10 lg:gap-14 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row items-start justify-end gap-6 sm:gap-6 md:gap-8 lg:gap-14 w-full sm:w-auto"
           >
             {/* Card 1: Choose the Car */}
             <div
               style={{ opacity: 0 }}
-              className="w-full sm:w-[240px] lg:w-[270px] flex flex-col items-start"
+              className="w-full sm:w-[190px] md:w-[220px] lg:w-[270px] flex flex-col items-start"
             >
-              <div className="bg-blue-600 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-3 shadow-lg shadow-blue-600/30">
-                <Car className="w-6 h-6 text-white" />
+              <div className="bg-blue-600 p-2.5 sm:p-3 rounded-full w-10 sm:w-12 h-10 sm:h-12 flex items-center justify-center mb-3 shadow-lg shadow-blue-600/30">
+                <Car className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
               </div>
-              <h4 className="text-xl sm:text-2xl font-bold text-white mb-2 font-heading">
+              <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-1.5 sm:mb-2 font-heading">
                 Choose the Car
               </h4>
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+              <p className="text-xs sm:text-sm lg:text-base text-slate-400 leading-relaxed">
                 Pick what suits your comfort.
               </p>
             </div>
@@ -205,11 +205,11 @@ export default function FreedomSection() {
             {/* Card 2: Choose the Driver */}
             <div
               style={{ opacity: 0 }}
-              className="w-full sm:w-[240px] lg:w-[270px] flex flex-col items-start"
+              className="w-full sm:w-[190px] md:w-[220px] lg:w-[270px] flex flex-col items-start"
             >
-              <div className="bg-[#facc15] text-black p-3 rounded-full w-12 h-12 flex items-center justify-center mb-3 shadow-lg shadow-yellow-500/20">
+              <div className="bg-[#facc15] text-black p-2.5 sm:p-3 rounded-full w-10 sm:w-12 h-10 sm:h-12 flex items-center justify-center mb-3 shadow-lg shadow-yellow-500/20">
                 <svg
-                  className="w-6 h-6 text-black"
+                  className="w-5 sm:w-6 h-5 sm:h-6 text-black"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -224,10 +224,10 @@ export default function FreedomSection() {
                   <path d="M19.5 16.5l-5.5-3" />
                 </svg>
               </div>
-              <h4 className="text-xl sm:text-2xl font-bold text-white mb-2 font-heading">
+              <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-1.5 sm:mb-2 font-heading">
                 Choose the Driver
               </h4>
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+              <p className="text-xs sm:text-sm lg:text-base text-slate-400 leading-relaxed">
                 Based on ratings and reviews.
               </p>
             </div>
@@ -235,15 +235,15 @@ export default function FreedomSection() {
             {/* Card 3: Choose the Fare */}
             <div
               style={{ opacity: 0 }}
-              className="w-full sm:w-[240px] lg:w-[270px] flex flex-col items-start"
+              className="w-full sm:w-[190px] md:w-[220px] lg:w-[270px] flex flex-col items-start"
             >
-              <div className="bg-[#10b981] p-3 rounded-full w-12 h-12 flex items-center justify-center mb-3 shadow-lg shadow-emerald-500/20">
-                <Banknote className="w-6 h-6 text-white" />
+              <div className="bg-[#10b981] p-2.5 sm:p-3 rounded-full w-10 sm:w-12 h-10 sm:h-12 flex items-center justify-center mb-3 shadow-lg shadow-emerald-500/20">
+                <Banknote className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
               </div>
-              <h4 className="text-xl sm:text-2xl font-bold text-white mb-2 font-heading">
+              <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-1.5 sm:mb-2 font-heading">
                 Choose the Fare
               </h4>
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+              <p className="text-xs sm:text-sm lg:text-base text-slate-400 leading-relaxed">
                 Select the bid that fits your budget.
               </p>
             </div>

@@ -41,14 +41,14 @@ export default function Hero() {
   }, [displayedText, isDeleting, currentPhraseIndex, typingPhrases]);
 
   return (
-    <section id="hero" className="relative bg-white pt-[136px] lg:pt-[156px] pb-4 max-md:pb-6 overflow-visible z-[2]">
-      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
+    <section id="home" className="relative bg-white pt-[140px] md:pt-[150px] lg:pt-[156px] pb-4 max-md:pb-6 overflow-visible z-[2]">
+      <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Hero Header Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-12 lg:mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-10 sm:mb-12 lg:mb-14">
           {/* Left Column: Heading with Typewriter Effect */}
           <div className="w-full max-w-[480px]">
-            <div className="hero-title-container min-h-[110px] lg:min-h-[125px] flex items-center">
-              <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-[1.15]">
+            <div className="hero-title-container min-h-[96px] sm:min-h-[110px] lg:min-h-[125px] flex items-center">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-[1.18] sm:leading-[1.15]">
                 <span>{displayedText}</span>
                 <span className="inline-block text-blue-600 font-normal animate-pulse ml-1 select-none">|</span>
               </h1>
@@ -56,13 +56,13 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Subtitle & Yellow Action Button */}
-          <div className="hero-right-content flex flex-col items-start max-w-md pt-2">
-            <p className="text-gray-500 text-base lg:text-lg leading-relaxed mb-6 text-left">
+          <div className="hero-right-content flex flex-col items-start max-w-md pt-1 sm:pt-2">
+            <p className="text-gray-500 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 text-left">
               {subtitle}
             </p>
             <a
               href={ctaLink}
-              className="bg-[#facc15] hover:bg-[#eab308] text-gray-900 font-semibold px-8 py-3.5 rounded-xl flex items-center gap-3 shadow-sm hover:shadow transition-all cursor-pointer group"
+              className="bg-[#facc15] hover:bg-[#eab308] text-gray-900 font-semibold px-6 sm:px-8 py-3.5 rounded-xl inline-flex items-center justify-center gap-3 shadow-sm hover:shadow transition-all cursor-pointer group w-full sm:w-auto"
             >
               <span>{ctaText}</span>
               <ArrowRight className="w-5 h-5 text-gray-900 transition-transform duration-300 group-hover:translate-x-1" />

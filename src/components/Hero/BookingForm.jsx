@@ -193,14 +193,14 @@ export default function BookingForm() {
     <div className="relative z-20 w-full">
       {/* 2. Header Tab Layout (Integrated Shape sitting flush on top-left of the card) */}
       <div className="flex">
-        <div className="inline-flex items-center bg-white rounded-t-2xl px-2.5 pt-2.5 pb-2 gap-1.5 shadow-[0_-4px_16px_rgba(0,0,0,0.02)] border-t border-x border-gray-100/90">
+        <div className="inline-flex items-center bg-white rounded-t-2xl px-2 sm:px-2.5 pt-2 sm:pt-2.5 pb-2 gap-1 sm:gap-1.5 shadow-[0_-4px_16px_rgba(0,0,0,0.02)] border-t border-x border-gray-100/90">
           <button
             type="button"
             onClick={() => {
               setActiveTab('car-rental');
               setErrors({});
             }}
-            className={`font-medium px-6 py-2.5 rounded-lg text-sm transition-all cursor-pointer ${activeTab === 'car-rental'
+            className={`font-medium px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'car-rental'
                 ? 'bg-[#111827] text-white shadow-sm'
                 : 'bg-transparent text-gray-900 hover:text-black'
               }`}
@@ -213,7 +213,7 @@ export default function BookingForm() {
               setActiveTab('airport-rental');
               setErrors({});
             }}
-            className={`font-medium px-6 py-2.5 rounded-lg text-sm transition-all cursor-pointer ${activeTab === 'airport-rental'
+            className={`font-medium px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'airport-rental'
                 ? 'bg-[#111827] text-white shadow-sm'
                 : 'bg-transparent text-gray-900 hover:text-black'
               }`}
@@ -224,7 +224,7 @@ export default function BookingForm() {
       </div>
 
       {/* 3. Main Filter Container (Vertical Divider Style - NO BOXED INPUTS) */}
-      <div className="bg-white rounded-2xl rounded-tl-none shadow-xl p-6 lg:p-8 border border-gray-100">
+      <div className="bg-white rounded-2xl rounded-tl-none shadow-xl p-4 sm:p-6 lg:p-8 border border-gray-100">
         <form onSubmit={handleContinue}>
           {/* Main 4/5 Column Filter Row separated by vertical divider lines */}
           <div
@@ -278,7 +278,7 @@ export default function BookingForm() {
 
               {/* Vehicle Selection Modal / Popover (Opens upwards to prevent overlap) */}
               {carDropdownOpen && (
-                <div className="absolute bottom-full left-0 mb-3 z-[100] w-[300px] sm:w-[340px] max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-3 animate-modalPop origin-bottom-left">
+                <div className="absolute bottom-full left-0 mb-3 z-[100] w-[300px] sm:w-[340px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-3 animate-modalPop origin-bottom-left">
                   <div className="px-2 py-1.5 mb-1">
                     <span className="text-[11px] font-bold text-gray-400 tracking-wider uppercase">
                       AVAILABLE FLEET
@@ -392,7 +392,7 @@ export default function BookingForm() {
                   </div>
 
                   {airportDropdownOpen && (
-                    <div className="absolute bottom-full left-0 mb-3 z-[100] w-[320px] sm:w-[360px] max-w-[92vw] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 animate-modalPop origin-bottom-left">
+                    <div className="absolute bottom-full left-0 mb-3 z-[100] w-[320px] sm:w-[360px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 animate-modalPop origin-bottom-left">
                       <div className="px-2.5 py-1.5 mb-1.5 flex items-center justify-between border-b border-gray-100">
                         <span className="text-[11px] font-bold text-gray-400 tracking-wider uppercase">
                           SELECT AIRPORT
@@ -545,7 +545,7 @@ export default function BookingForm() {
                   </div>
 
                   {airportDropdownOpen && (
-                    <div className="absolute bottom-full left-0 mb-3 z-[100] w-[320px] sm:w-[360px] max-w-[92vw] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 animate-modalPop origin-bottom-left">
+                    <div className="absolute bottom-full left-0 mb-3 z-[100] w-[320px] sm:w-[360px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-2.5 animate-modalPop origin-bottom-left">
                       <div className="px-2.5 py-1.5 mb-1.5 flex items-center justify-between border-b border-gray-100">
                         <span className="text-[11px] font-bold text-gray-400 tracking-wider uppercase">
                           SELECT AIRPORT
@@ -669,7 +669,7 @@ export default function BookingForm() {
           </div>
 
           {/* 4. Bottom Controls Row */}
-          <div className="flex items-center justify-between mt-6 pt-5 border-t border-gray-100 flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between mt-6 pt-5 border-t border-gray-100 gap-4">
             {/* Left Radio Group */}
             <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
               {activeTab === 'car-rental' ? (
@@ -688,17 +688,17 @@ export default function BookingForm() {
                           setTripType(item.id);
                           setErrors({});
                         }}
-                        className={`cursor-pointer px-4 py-1.5 rounded-lg flex items-center gap-2 text-sm font-medium transition-all ${isSelected
+                        className={`cursor-pointer px-3 sm:px-4 py-1.5 rounded-lg flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-all ${isSelected
                             ? 'text-blue-600 bg-blue-50/50'
                             : 'text-gray-900 hover:text-black bg-transparent'
                           }`}
                       >
                         <span
-                          className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors ${isSelected ? 'border-blue-600' : 'border-gray-300'
+                          className={`w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full border-2 flex items-center justify-center transition-colors ${isSelected ? 'border-blue-600' : 'border-gray-300'
                             }`}
                         >
                           {isSelected ? (
-                            <span className="w-2 h-2 rounded-full bg-blue-600" />
+                            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-600" />
                           ) : (
                             <span className="w-1.5 h-1.5 rounded-full bg-transparent" />
                           )}
@@ -723,17 +723,17 @@ export default function BookingForm() {
                           setAirportTripType(item.id);
                           setErrors({});
                         }}
-                        className={`cursor-pointer px-4 py-1.5 rounded-lg flex items-center gap-2 text-sm font-medium transition-all ${isSelected
+                        className={`cursor-pointer px-3 sm:px-4 py-1.5 rounded-lg flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-all ${isSelected
                             ? 'text-blue-600 bg-blue-50/50'
                             : 'text-gray-900 hover:text-black bg-transparent'
                           }`}
                       >
                         <span
-                          className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors ${isSelected ? 'border-blue-600' : 'border-gray-300'
+                          className={`w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full border-2 flex items-center justify-center transition-colors ${isSelected ? 'border-blue-600' : 'border-gray-300'
                             }`}
                         >
                           {isSelected ? (
-                            <span className="w-2 h-2 rounded-full bg-blue-600" />
+                            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-600" />
                           ) : (
                             <span className="w-1.5 h-1.5 rounded-full bg-transparent" />
                           )}
@@ -746,11 +746,10 @@ export default function BookingForm() {
               )}
             </div>
 
-
             {/* Right Action Button: Bright vibrant blue pill button */}
             <button
               type="submit"
-              className="bg-[#1a56db] hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-xl flex items-center gap-2 shadow-md transition-all cursor-pointer"
+              className="bg-[#1a56db] hover:bg-blue-700 text-white font-medium px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl inline-flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer w-full sm:w-auto text-sm sm:text-base"
             >
               <span>Continue</span>
               <ArrowRight size={18} />
@@ -761,12 +760,12 @@ export default function BookingForm() {
 
       {/* Confirmation / Trip Estimate Modal */}
       {submittedTrip && (
-        <div className="fixed inset-0 w-full h-full bg-black/65 backdrop-blur-sm flex items-center justify-center z-[9999] p-5 animate-modalPop">
-          <div className="bg-white w-full max-w-[520px] rounded-3xl p-8 shadow-2xl border border-gray-100">
+        <div className="fixed inset-0 w-full h-full bg-black/65 backdrop-blur-sm flex items-center justify-center z-[9999] p-3 sm:p-5 animate-modalPop">
+          <div className="bg-white w-full max-w-[520px] rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl border border-gray-100 max-h-[92vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 size={24} className="text-emerald-500" />
-                <h3 className="text-xl font-bold font-heading text-gray-900">
+                <CheckCircle2 size={24} className="text-emerald-500 shrink-0" />
+                <h3 className="text-lg sm:text-xl font-bold font-heading text-gray-900">
                   Trip Bidding Request Ready!
                 </h3>
               </div>

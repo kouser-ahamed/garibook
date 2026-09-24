@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight, Star, ShieldCheck, Newspaper } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Star, ShieldCheck } from 'lucide-react';
 import { homeData } from '../../data/homeData';
 
 export default function Testimonials() {
-  const { newsPlatforms, testimonials } = homeData;
+  const { testimonials } = homeData;
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   const prevReview = () => {

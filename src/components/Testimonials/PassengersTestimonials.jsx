@@ -236,37 +236,37 @@ export const PassengersTestimonials = () => {
       className="bg-slate-50/70 py-16 sm:py-24 border-t border-slate-100 overflow-hidden"
       id="passenger-testimonials"
     >
-      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Layout with Title & Arrow Navigation Controls */}
-        <div className="flex items-end justify-between mb-10 sm:mb-14 gap-6">
+        <div className="flex items-end justify-between mb-8 sm:mb-14 gap-4 sm:gap-6">
           <div ref={headingRef}>
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 leading-[1.12] tracking-tight font-heading">
+            <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-slate-900 leading-[1.12] tracking-tight font-heading">
               Our Passengers Speak For Us
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-3 max-w-2xl font-normal leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 mt-2.5 sm:mt-3 max-w-2xl font-normal leading-relaxed">
               Real stories and genuine highway experiences from passengers who travel intercity with freedom, safety, and comfort.
             </p>
           </div>
 
           {/* Navigation Controls matching FeaturedNews */}
-          <div ref={controlsRef} className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+          <div ref={controlsRef} className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
               type="button"
               onClick={handlePrev}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-white active:scale-95 shadow-sm cursor-pointer"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-white active:scale-95 shadow-sm cursor-pointer"
               aria-label="Previous Testimonials"
               title="Previous Testimonials"
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={18} className="sm:w-5 sm:h-5" />
             </button>
             <button
               type="button"
               onClick={handleNext}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-white active:scale-95 shadow-sm cursor-pointer"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-white active:scale-95 shadow-sm cursor-pointer"
               aria-label="Next Testimonials"
               title="Next Testimonials"
             >
-              <ArrowRight size={20} />
+              <ArrowRight size={18} className="sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
@@ -302,8 +302,8 @@ export const PassengersTestimonials = () => {
 
                 {/* Centered Circular Red Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-[#ef233c] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(239,35,60,0.55)] group-hover:scale-115 group-hover:bg-[#d90429] transition-all duration-300 ease-out">
-                    <Play size={26} className="fill-white translate-x-0.5 text-white" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-[#ef233c] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(239,35,60,0.55)] group-hover:scale-110 group-hover:bg-[#d90429] transition-all duration-300 ease-out">
+                    <Play size={20} className="fill-white translate-x-0.5 text-white sm:w-6 sm:h-6" />
                   </div>
                 </div>
               </div>

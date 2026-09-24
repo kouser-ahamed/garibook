@@ -189,19 +189,19 @@ export default function BookingArrivalSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-black text-white py-14 sm:py-16 lg:py-20 overflow-hidden"
+      className="w-full bg-black text-white py-12 sm:py-16 lg:py-20 overflow-hidden"
       id="booking-arrival"
     >
-      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Row */}
-        <div className="booking-arrival-header flex items-end justify-between mb-8 sm:mb-11 gap-6 max-[991px]:flex-col max-[991px]:items-start">
+        <div className="booking-arrival-header flex items-start sm:items-end justify-between mb-8 sm:mb-11 gap-5 sm:gap-6 flex-col lg:flex-row">
           <div ref={headingRef}>
-            <h2 className="text-white text-[clamp(2rem,3.8vw,3rem)] font-bold font-heading leading-[1.2]">
-              From Booking to Arrival It’s <br /> All in Your Hands
+            <h2 className="text-white text-[clamp(1.75rem,3.8vw,3rem)] font-bold font-heading leading-[1.2]">
+              From Booking to Arrival It’s <br className="hidden sm:inline" /> All in Your Hands
             </h2>
           </div>
-          <div ref={buttonRef}>
-            <a href="#download-app" className="theme-primary-btn">
+          <div ref={buttonRef} className="w-full sm:w-auto">
+            <a href="#download-app" className="theme-primary-btn w-full sm:w-auto justify-center py-3.5 sm:py-[18px] px-6 sm:px-7 text-base sm:text-[1.15rem]">
               <span>{ctaText}</span>
               <ArrowRight size={20} className="btn-icon" />
             </a>
@@ -211,7 +211,7 @@ export default function BookingArrivalSection() {
         {/* Bento Mosaic Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-3 max-[991px]:grid-cols-2 max-sm:grid-cols-1 gap-6 max-sm:gap-4"
+          className="grid grid-cols-3 max-[991px]:grid-cols-2 max-sm:grid-cols-1 gap-5 sm:gap-6 max-sm:gap-4"
         >
           {items.map((item, idx) => {
             const isItem1 = idx === 0;
@@ -236,11 +236,11 @@ export default function BookingArrivalSection() {
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105"
                 />
-                <div className="absolute bottom-0 left-0 w-full p-6 max-sm:py-[18px] max-sm:px-3.5 bg-[linear-gradient(180deg,transparent_0%,rgba(0,0,0,0.85)_100%)] flex flex-col gap-1">
-                  <h5 className="text-[1.35rem] font-bold font-heading text-white">
+                <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 bg-[linear-gradient(180deg,transparent_0%,rgba(0,0,0,0.85)_100%)] flex flex-col gap-1">
+                  <h5 className="text-[1.15rem] sm:text-[1.35rem] font-bold font-heading text-white leading-snug">
                     {item.title}
                   </h5>
-                  <p className="text-[0.95rem] text-white/80">{item.subtitle}</p>
+                  <p className="text-xs sm:text-[0.95rem] text-white/80">{item.subtitle}</p>
                 </div>
               </div>
             );

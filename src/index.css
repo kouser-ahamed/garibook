@@ -87,21 +87,26 @@
 
 @layer components {
 
-  /* Reusable Container matching unified Garibook specs (max-w-[1420px] mx-auto px-6 lg:px-8) */
+  /* Reusable Container matching unified Garibook specs */
   .container {
     width: 100%;
     max-width: 1420px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    /* px-6 */
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
   }
 
   @media (min-width: 1024px) {
     .container {
       padding-left: 2rem;
-      /* lg:px-8 */
       padding-right: 2rem;
     }
   }
@@ -113,8 +118,8 @@
 
   @media (max-width: 768px) {
     .section-padding {
-      padding-top: 50px;
-      padding-bottom: 50px;
+      padding-top: 45px;
+      padding-bottom: 45px;
     }
   }
 
@@ -158,10 +163,5 @@
 
   .theme-navbar-wrapper.is-sticky {
     @apply fixed top-0 left-0 bg-white py-3.5 shadow-[0_4px_20px_rgba(0,0,0,0.08)] animate-navSlideDown;
-  }
-
-  /* Floating Scroll To Top */
-  .scroll-to-top-btn {
-    @apply fixed bottom-9 right-9 w-[52px] h-[52px] rounded-full bg-primary-gb text-white flex items-center justify-center shadow-[0_8px_24px_rgba(14,82,255,0.4)] z-[998] hover:bg-primary-gb-hover hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer;
   }
 }

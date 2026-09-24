@@ -38,7 +38,7 @@ export const NewsCard = ({
     <article className="flex flex-col justify-between h-full group select-none">
       <div>
         {/* Top Image Thumbnail Wrapper */}
-        <div className="w-full h-56 sm:h-64 rounded-3xl overflow-hidden mb-4 bg-slate-100 shadow-sm relative">
+        <div className="w-full h-48 sm:h-56 md:h-64 rounded-2xl sm:rounded-3xl overflow-hidden mb-3.5 sm:mb-4 bg-slate-100 shadow-sm relative">
           <img
             src={currentImage}
             alt={currentTitle || "News Cover"}
