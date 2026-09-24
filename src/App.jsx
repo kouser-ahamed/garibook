@@ -10,6 +10,7 @@ import DriverSection from './components/DriverSection/DriverSection';
 import FeaturedNews from './components/FeaturedNews/FeaturedNews';
 import PassengersTestimonials from './components/Testimonials/PassengersTestimonials';
 import BlogSection from './components/BlogSection/BlogSection';
+import BlogDetail from './components/BlogSection/BlogDetail';
 import AppDownload from './components/AppDownload/AppDownload';
 import Footer from './components/Footer/Footer';
 import { initHeroEntrance } from './animations/heroAnimations';
@@ -20,6 +21,26 @@ import './index.css';
 export default function App() {
   const mainRef = useRef(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeBlogId, setActiveBlogId] = useState(null);
+
+  // Sync with URL hash for seamless deep-linking (#blog-1, #blog-2, #blog-3)
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#blog-')) {
+        const id = hash.replace('#blog-', '');
+        if (id && !isNaN(Number(id))) {
+          setActiveBlogId(Number(id));
+        }
+      } else if (!hash || hash === '#blogs' || hash === '#' || hash === '#home') {
+        setActiveBlogId(null);
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   useEffect(() => {
     // 1. Initialize GSAP Hero entrance timeline
@@ -56,40 +77,67 @@ export default function App() {
       {/* 1. Top Navbar */}
       <Navbar />
 
-      <main>
-        {/* 2. Hero & Booking Form */}
-        <Hero />
+      {/* Blog Details Page View */}
+      {activeBlogId ? (
+        <BlogDetail
+          blogId={activeBlogId}
+          onBack={() => {
+            setActiveBlogId(null);
+            window.location.hash = '#blogs';
+            setTimeout(() => {
+              const el = document.getElementById('blogs');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+          }}
+          onSelectBlog={(id) => {
+            setActiveBlogId(id);
+            window.location.hash = `#blog-${id}`;
+          }}
+        />
+      ) : null}
 
-        {/* 3. Statistics Section */}
-        <Statistics />
+      {/* Main Homepage Sections (hidden when viewing blog details, preserving GSAP & DOM state) */}
+      <div style={{ display: activeBlogId ? 'none' : 'block' }}>
+        <main>
+          {/* 2. Hero & Booking Form */}
+          <Hero />
 
-        {/* 4. Our Services Section */}
-        <Services />
+          {/* 3. Statistics Section */}
+          <Statistics />
 
-        {/* 5. Freedom in Every Journey */}
-        <FreedomSection />
+          {/* 4. Our Services Section */}
+          <Services />
 
-        {/* 6. Travel Scenarios (More Than Miles) */}
-        <TravelSection />
+          {/* 5. Freedom in Every Journey */}
+          <FreedomSection />
 
-        {/* 7. From Booking to Arrival (Mosaic) */}
-        <BookingArrivalSection />
+          {/* 6. Travel Scenarios (More Than Miles) */}
+          <TravelSection />
 
-        {/* 8. Be a Smart Driver */}
-        <DriverSection />
+          {/* 7. From Booking to Arrival (Mosaic) */}
+          <BookingArrivalSection />
 
-        {/* 9. We Featured by Top news Platforms */}
-        <FeaturedNews />
+          {/* 8. Be a Smart Driver */}
+          <DriverSection />
 
-        {/* 10. Our Passengers Speak For Us (Video Testimonials) */}
-        <PassengersTestimonials />
+          {/* 9. We Featured by Top news Platforms */}
+          <FeaturedNews />
 
-        {/* 11. Beyond Destinations (Blogs) */}
-        <BlogSection />
+          {/* 10. Our Passengers Speak For Us (Video Testimonials) */}
+          <PassengersTestimonials />
 
-        {/* 11. Download App Banner */}
-        <AppDownload />
-      </main>
+          {/* 11. Beyond Destinations (Blogs) */}
+          <BlogSection
+            onSelectBlog={(id) => {
+              setActiveBlogId(id);
+              window.location.hash = `#blog-${id}`;
+            }}
+          />
+
+          {/* 12. Download App Banner */}
+          <AppDownload />
+        </main>
+      </div>
 
       {/* 12. Footer */}
       <Footer />

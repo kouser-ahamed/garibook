@@ -392,31 +392,37 @@ export const homeData = {
 
   blogs: [
     {
-      title: "Top 7 Scenic Spots in Bangladesh You Can Reach by Car",
+      id: 1,
       category: "Road Trips",
       date: "September 15, 2026",
       readTime: "5 min read",
+      title: "রাইড শেয়ারিংয়ে বদলে যাচ্ছে বাংলাদেশের শহুরে পরিবহন ব্যবস্থা",
       excerpt:
-        "From the rolling hills of Sajek Valley to the calm tea plantations of Sreemangal, here are the top driving routes.",
-      image: "/assets/images/travel_tour.jpg"
+        "রাইড শেয়ারিংয়ে বদলে যাচ্ছে বাংলাদেশের শহুরে পরিবহন ব্যবস্থা। নিরাপদ ভ্রমণ, সাশ্রয়ী ভাড়া এবং সহজ অ্যাপ বুকিং সুবিধার পূর্ণাঙ্গ নির্দেশিকা।",
+      image: "/assets/blog/1.webp",
+      articleUrl: "https://garibook.com/blog/ride-sharing-bangladesh",
     },
     {
-      title: "The Ultimate Guide to Hassle-Free Airport Transfers",
-      category: "Travel Hacks",
-      date: "September 08, 2026",
-      readTime: "4 min read",
-      excerpt:
-        "How to avoid airport surge pricing, select the right luggage capacity, and coordinate terminal pickups smoothly.",
-      image: "/assets/images/travel_airport.jpg"
-    },
-    {
-      title: "Why Corporate Fleets Are Switching to Smart VMS",
-      category: "Business Mobility",
-      date: "August 28, 2026",
+      id: 2,
+      category: "Sylhet Tour",
+      date: "September 20, 2026",
       readTime: "6 min read",
+      title: "সিলেটের দর্শনীয় স্থান সমূহ, খাবার ও থাকার ব্যবস্থা",
       excerpt:
-        "How automated route optimization and live telemetry cut corporate fleet operational costs by up to 28%.",
-      image: "/assets/images/vms_dashboard.jpg"
+        "জাফলং, বিছনাকান্দি, রাতারগুল ও সাদাপাথর ভ্রমণের সেরা রুট, গাড়ি বুকিং টিপস এবং স্থানীয় খাবার ও হোটেল বুকিংয়ের পূর্ণ তথ্য।",
+      image: "/assets/blog/2.webp",
+      articleUrl: "https://garibook.com/blog/sylhet-tourist-spots",
+    },
+    {
+      id: 3,
+      category: "Heritage Tour",
+      date: "September 20, 2026",
+      readTime: "4 min read",
+      title: "নওগাঁর দর্শনীয় স্থান সমূহ, খাবার ও থাকার ব্যবস্থা",
+      excerpt:
+        "পাহাড়পুর সোমপুর মহাবিহার, কুশুম্বা মসজিদ ও পতিসর রবীন্দ্র স্মৃতি জাদুঘর ঘুরে দেখার সম্পূর্ণ গাইড ও যাতায়াত পরামর্শ।",
+      image: "/assets/blog/3.webp",
+      articleUrl: "https://garibook.com/blog/naogaon-tourist-spots",
     }
   ],
 

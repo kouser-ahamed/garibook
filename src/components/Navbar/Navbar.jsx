@@ -31,37 +31,33 @@ export default function Navbar() {
     }
   }, []);
 
-  // GSAP ScrollTrigger: Slide down floating sticky navbar when scrolling past hero
+  // Slide down floating sticky navbar when scrolling past top header
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Initially hide sticky bar above viewport (-100px)
-      gsap.set(stickyNavRef.current, { y: -100, opacity: 0 });
+    // Initially hide sticky bar above viewport (-100px)
+    gsap.set(stickyNavRef.current, { y: -100, opacity: 0 });
 
-      ScrollTrigger.create({
-        trigger: '#hero',
-        start: 'bottom 120px', // As soon as user scrolls past hero section
-        onEnter: () => {
-          gsap.to(stickyNavRef.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.4,
-            ease: 'power3.out',
-            overwrite: 'auto'
-          });
-        },
-        onLeaveBack: () => {
-          gsap.to(stickyNavRef.current, {
-            y: -100,
-            opacity: 0,
-            duration: 0.3,
-            ease: 'power3.in',
-            overwrite: 'auto'
-          });
-        }
-      });
-    });
+    const handleScroll = () => {
+      if (window.scrollY > 140) {
+        gsap.to(stickyNavRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.35,
+          ease: 'power3.out',
+          overwrite: 'auto'
+        });
+      } else {
+        gsap.to(stickyNavRef.current, {
+          y: -100,
+          opacity: 0,
+          duration: 0.25,
+          ease: 'power3.in',
+          overwrite: 'auto'
+        });
+      }
+    };
 
-    return () => ctx.revert();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
