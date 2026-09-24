@@ -24,7 +24,7 @@ export default function Testimonials() {
         {/* Passenger Speak Section */}
         <div className="passenger-header-row gsap-section-header flex items-end justify-between mb-10 gap-7.5 max-md:flex-col max-md:items-start">
           <div className="max-w-[720px]">
-            <h2 className="text-[clamp(1.85rem,3.5vw,3rem)] font-bold font-heading text-dark-gb tracking-[-1px]">
+            <h2 className="text-[clamp(1.15rem,4.5vw,3rem)] font-bold font-heading text-dark-gb tracking-[-1px] whitespace-nowrap">
               Our Passengers Speak For Us
             </h2>
             <p className="text-[1.15rem] leading-[1.6] text-[#666666] mt-3.5">

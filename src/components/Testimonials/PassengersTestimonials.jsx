@@ -238,35 +238,35 @@ export const PassengersTestimonials = () => {
     >
       <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Layout with Title & Arrow Navigation Controls */}
-        <div className="flex items-end justify-between mb-8 sm:mb-14 gap-4 sm:gap-6">
-          <div ref={headingRef}>
-            <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-slate-900 leading-[1.12] tracking-tight font-heading">
+        <div className="flex items-end justify-between mb-8 sm:mb-14 gap-2 sm:gap-6">
+          <div ref={headingRef} className="min-w-0 flex-1">
+            <h2 className="text-[clamp(1.05rem,4vw,2.25rem)] sm:text-3xl md:text-4xl lg:text-[42px] font-black text-slate-900 leading-[1.15] tracking-tight font-heading whitespace-nowrap">
               Our Passengers Speak For Us
             </h2>
-            <p className="text-sm sm:text-base lg:text-lg text-slate-600 mt-2.5 sm:mt-3 max-w-2xl font-normal leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 mt-2 sm:mt-3 max-w-2xl font-normal leading-relaxed">
               Real stories and genuine highway experiences from passengers who travel intercity with freedom, safety, and comfort.
             </p>
           </div>
 
           {/* Navigation Controls matching FeaturedNews */}
-          <div ref={controlsRef} className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div ref={controlsRef} className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <button
               type="button"
               onClick={handlePrev}
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-white active:scale-95 shadow-sm cursor-pointer"
+              className="w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-white active:scale-95 shadow-sm cursor-pointer"
               aria-label="Previous Testimonials"
               title="Previous Testimonials"
             >
-              <ArrowLeft size={18} className="sm:w-5 sm:h-5" />
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
             </button>
             <button
               type="button"
               onClick={handleNext}
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-white active:scale-95 shadow-sm cursor-pointer"
+              className="w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 transition-all duration-200 hover:border-slate-900 hover:text-slate-900 hover:bg-white active:scale-95 shadow-sm cursor-pointer"
               aria-label="Next Testimonials"
               title="Next Testimonials"
             >
-              <ArrowRight size={18} className="sm:w-5 sm:h-5" />
+              <ArrowRight size={16} className="sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>

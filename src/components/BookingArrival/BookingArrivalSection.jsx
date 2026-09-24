@@ -194,13 +194,13 @@ export default function BookingArrivalSection() {
     >
       <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Row */}
-        <div className="booking-arrival-header flex items-start sm:items-end justify-between mb-8 sm:mb-11 gap-5 sm:gap-6 flex-col lg:flex-row">
-          <div ref={headingRef}>
-            <h2 className="text-white text-[clamp(1.75rem,3.8vw,3rem)] font-bold font-heading leading-[1.2]">
+        <div className="booking-arrival-header flex items-start sm:items-end justify-between mb-8 sm:mb-11 gap-5 sm:gap-6 flex-col sm:flex-row">
+          <div ref={headingRef} className="text-left max-w-xl lg:max-w-2xl">
+            <h2 className="text-white text-[clamp(1.75rem,3.8vw,3rem)] font-bold font-heading leading-[1.2] text-left">
               From Booking to Arrival It’s <br className="hidden sm:inline" /> All in Your Hands
             </h2>
           </div>
-          <div ref={buttonRef} className="w-full sm:w-auto">
+          <div ref={buttonRef} className="w-full sm:w-auto shrink-0">
             <a href="#download-app" className="theme-primary-btn w-full sm:w-auto justify-center py-3.5 sm:py-[18px] px-6 sm:px-7 text-base sm:text-[1.15rem]">
               <span>{ctaText}</span>
               <ArrowRight size={20} className="btn-icon" />
@@ -229,12 +229,12 @@ export default function BookingArrivalSection() {
               `relative rounded-[18px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] cursor-pointer transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_22px_45px_rgba(0,0,0,0.65)] hover:border-white/25 group border border-white/10 ${cardThemes[idx] || 'bg-neutral-900'} `;
             if (isItem1) {
               cardClasses +=
-                'col-span-2 max-sm:col-span-1 h-[380px] lg:h-[395px] max-[991px]:h-[300px] max-sm:h-[230px]';
+                'col-span-2 max-sm:col-span-1 h-[320px] sm:h-[340px] lg:h-[395px] max-sm:h-[230px]';
             } else if (isItem2) {
               cardClasses +=
-                'col-span-1 max-[991px]:col-span-2 max-sm:col-span-1 h-[380px] lg:h-[395px] max-[991px]:h-[340px] max-sm:h-[320px]';
+                'col-span-1 max-sm:col-span-1 h-[300px] sm:h-[330px] lg:h-[395px] max-sm:h-[280px]';
             } else {
-              cardClasses += 'col-span-1 h-[340px] lg:h-[360px] max-[991px]:h-[320px] max-sm:h-[300px]';
+              cardClasses += 'col-span-1 h-[300px] sm:h-[330px] lg:h-[360px] max-sm:h-[280px]';
             }
 
             return (

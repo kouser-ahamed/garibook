@@ -20,120 +20,157 @@ export default function DriverSection() {
 
     // 1. Desktop (>= 1024px)
     mm.add('(min-width: 1024px)', () => {
-      // Initial hidden states matching BookingArrival pattern
-      gsap.set(headingRef.current, { y: 80, opacity: 0, force3D: true });
-      gsap.set(cardRef.current, { y: 95, opacity: 0, force3D: true });
-      gsap.set(buttonRef.current, { x: -90, opacity: 0, force3D: true });
-      gsap.set(mockupRef.current, { y: 95, opacity: 0, force3D: true });
+      gsap.set(headingRef.current, { y: 50, opacity: 0, force3D: true });
+      gsap.set(cardRef.current, { y: 65, opacity: 0, force3D: true });
+      gsap.set(buttonRef.current, { x: -60, opacity: 0, force3D: true });
+      gsap.set(mockupRef.current, {
+        y: 85,
+        scale: 0.94,
+        opacity: 0,
+        transformOrigin: 'bottom center',
+        force3D: true,
+      });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 45%',
-          end: 'top 0%',
-          scrub: 1.2,
+          start: 'top 70%',
+          end: 'top 18%',
+          scrub: 1.1,
           invalidateOnRefresh: true,
         },
       });
 
-      // 1. Title comes first - rising up from bottom
+      // 1. Title reveals smoothly
       tl.to(
         headingRef.current,
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }
       )
-        // 2. Yellow banner card rises up from bottom
+        // 2. Card comes in from bottom
         .to(
           cardRef.current,
-          { y: 0, opacity: 1, duration: 0.75, ease: 'power2.out' },
-          '+=0.08'
+          { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out' },
+          '+=0.04'
         )
-        // 3. CTA Button reveals smoothly from left
-        .to(
-          buttonRef.current,
-          { x: 0, opacity: 1, duration: 0.85, ease: 'power2.out' },
-          '+=0.08'
-        )
-        // 4. Phone mockup image rises up from bottom
+        // 3. Shortly after card arrives, image rises up from bottom ("card asar aktu por e image asbe")
         .to(
           mockupRef.current,
-          { y: 0, opacity: 1, duration: 0.75, ease: 'power2.out' },
-          '+=0.1'
+          {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 0.75,
+            ease: 'power2.out',
+          },
+          '-=0.3'
+        )
+        // 4. CTA Button reveals smoothly from left
+        .to(
+          buttonRef.current,
+          { x: 0, opacity: 1, duration: 0.55, ease: 'power2.out' },
+          '-=0.25'
         );
+      // Beyond 'top 18%', the timeline is 100% complete and card remains totally stable!
+      // In reverse (scrolling up): image leaves FIRST, then card/title gradually remove!
     });
 
     // 2. Tablet (640px to 1023px)
     mm.add('(min-width: 640px) and (max-width: 1023px)', () => {
-      gsap.set(headingRef.current, { y: 65, opacity: 0, force3D: true });
-      gsap.set(cardRef.current, { y: 80, opacity: 0, force3D: true });
-      gsap.set(buttonRef.current, { x: -75, opacity: 0, force3D: true });
-      gsap.set(mockupRef.current, { y: 80, opacity: 0, force3D: true });
+      gsap.set(headingRef.current, { y: 40, opacity: 0, force3D: true });
+      gsap.set(cardRef.current, { y: 55, opacity: 0, force3D: true });
+      gsap.set(buttonRef.current, { x: -45, opacity: 0, force3D: true });
+      gsap.set(mockupRef.current, {
+        y: 75,
+        scale: 0.94,
+        opacity: 0,
+        transformOrigin: 'bottom center',
+        force3D: true,
+      });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 46%',
-          end: 'top 0%',
-          scrub: 1.2,
+          start: 'top 72%',
+          end: 'top 20%',
+          scrub: 1.1,
           invalidateOnRefresh: true,
         },
       });
 
       tl.to(
         headingRef.current,
-        { y: 0, opacity: 1, duration: 0.55, ease: 'power2.out' }
+        { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' }
       )
         .to(
           cardRef.current,
-          { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out' },
-          '+=0.08'
-        )
-        .to(
-          buttonRef.current,
-          { x: 0, opacity: 1, duration: 0.75, ease: 'power2.out' },
-          '+=0.08'
+          { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
+          '+=0.04'
         )
         .to(
           mockupRef.current,
-          { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out' },
-          '+=0.1'
+          {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 0.7,
+            ease: 'power2.out',
+          },
+          '-=0.25'
+        )
+        .to(
+          buttonRef.current,
+          { x: 0, opacity: 1, duration: 0.5, ease: 'power2.out' },
+          '-=0.2'
         );
     });
 
     // 3. Mobile (< 640px)
     mm.add('(max-width: 639px)', () => {
-      gsap.set(headingRef.current, { y: 55, opacity: 0, force3D: true });
-      gsap.set(cardRef.current, { y: 70, opacity: 0, force3D: true });
-      gsap.set(buttonRef.current, { x: -60, opacity: 0, force3D: true });
-      gsap.set(mockupRef.current, { y: 70, opacity: 0, force3D: true });
+      gsap.set(headingRef.current, { y: 35, opacity: 0, force3D: true });
+      gsap.set(cardRef.current, { y: 45, opacity: 0, force3D: true });
+      gsap.set(buttonRef.current, { x: -35, opacity: 0, force3D: true });
+      gsap.set(mockupRef.current, {
+        y: 60,
+        scale: 0.95,
+        opacity: 0,
+        transformOrigin: 'bottom center',
+        force3D: true,
+      });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 48%',
-          end: 'top 0%',
-          scrub: 1.2,
+          start: 'top 74%',
+          end: 'top 22%',
+          scrub: 1.1,
           invalidateOnRefresh: true,
         },
       });
 
       tl.to(
         headingRef.current,
-        { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }
+        { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }
       )
         .to(
           cardRef.current,
-          { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
-          '+=0.06'
-        )
-        .to(
-          buttonRef.current,
-          { x: 0, opacity: 1, duration: 0.65, ease: 'power2.out' },
-          '+=0.06'
+          { y: 0, opacity: 1, duration: 0.55, ease: 'power2.out' },
+          '+=0.04'
         )
         .to(
           mockupRef.current,
-          { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
-          '+=0.08'
+          {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 0.65,
+            ease: 'power2.out',
+          },
+          '-=0.2'
+        )
+        .to(
+          buttonRef.current,
+          { x: 0, opacity: 1, duration: 0.45, ease: 'power2.out' },
+          '-=0.15'
         );
     });
 
