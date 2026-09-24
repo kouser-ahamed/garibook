@@ -13,6 +13,7 @@ import BlogSection from './components/BlogSection/BlogSection';
 import BlogDetail from './components/BlogSection/BlogDetail';
 import AppDownload from './components/AppDownload/AppDownload';
 import Footer from './components/Footer/Footer';
+import LiveChatWidget from './components/LiveChat/LiveChatWidget';
 import { initHeroEntrance } from './animations/heroAnimations';
 import { initScrollAnimations } from './animations/scrollAnimations';
 import { ArrowUp } from 'lucide-react';
@@ -22,6 +23,7 @@ export default function App() {
   const mainRef = useRef(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeBlogId, setActiveBlogId] = useState(null);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   // Sync with URL hash for seamless deep-linking (#blog-1, #blog-2, #blog-3)
   useEffect(() => {
@@ -142,17 +144,37 @@ export default function App() {
       {/* 12. Footer */}
       <Footer />
 
-      {/* Floating Scroll To Top Button */}
-      {showScrollTop && (
+      {/* Floating Buttons: Live Chat + Scroll To Top */}
+      <div className="fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-[998] flex flex-col items-center gap-3">
+        {/* Chat Toggle Button (Positioned directly above the arrow) */}
         <button
           type="button"
-          className="scroll-to-top-btn fixed bottom-5 right-5 sm:bottom-8 sm:right-8 w-11 h-11 sm:w-[52px] sm:h-[52px] rounded-full bg-primary-gb text-white flex items-center justify-center shadow-[0_8px_24px_rgba(14,82,255,0.4)] z-[998] hover:bg-primary-gb-hover hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer"
-          onClick={scrollToTop}
-          aria-label="Scroll to top"
+          onClick={() => setIsChatOpen((prev) => !prev)}
+          className="w-11 h-11 sm:w-[50px] sm:h-[50px] rounded-full bg-[#0E52FF] text-white flex items-center justify-center shadow-[0_6px_20px_rgba(14,82,255,0.4)] hover:bg-[#0043e0] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+          aria-label="Open Live Chat"
+          title="Live Chat Support"
         >
-          <ArrowUp size={20} className="sm:w-[22px] sm:h-[22px]" />
+          <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-white">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h3v4l4.5-4H20c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+          </svg>
         </button>
-      )}
+
+        {/* Scroll To Top Button (directly below chat button, matching screenshot) */}
+        {showScrollTop && (
+          <button
+            type="button"
+            className="scroll-to-top-btn w-11 h-11 sm:w-[48px] sm:h-[48px] rounded-xl sm:rounded-2xl bg-[#0E52FF] text-white flex items-center justify-center shadow-[0_6px_20px_rgba(14,82,255,0.4)] hover:bg-[#0043e0] hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            <ArrowUp size={22} className="stroke-[2.5]" />
+          </button>
+        )}
+      </div>
+
+      {/* Live Chat Modal Component */}
+      <LiveChatWidget isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
     </div>
   );
 }
