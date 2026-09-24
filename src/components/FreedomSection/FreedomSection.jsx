@@ -154,10 +154,10 @@ export default function FreedomSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-black py-14 sm:py-16 px-6 lg:px-8 text-white overflow-hidden"
+      className="w-full bg-black py-14 sm:py-16 text-white overflow-hidden"
       id="freedom"
     >
-      <div className="max-w-[1420px] mx-auto">
+      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
         {/* Step 1: Heading */}
         <h2
           ref={headingRef}
