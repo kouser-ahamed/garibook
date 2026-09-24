@@ -93,10 +93,11 @@ export default function Navbar() {
         <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo (Left Edge) */}
           <div className="flex items-center">
-            <a href="/" className="inline-flex items-center">
+            <a href="/" title="garibook" className="inline-flex items-center">
               <img
                 src="/assets/logo.svg"
                 alt="garibook"
+                title="garibook"
                 className="h-7 sm:h-8 md:h-9 w-auto object-contain"
               />
             </a>
@@ -164,10 +165,11 @@ export default function Navbar() {
         <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo (Left Edge) */}
           <div className="flex items-center">
-            <a href="/" className="inline-flex items-center">
+            <a href="/" title="garibook" className="inline-flex items-center">
               <img
                 src="/assets/logo.svg"
                 alt="garibook"
+                title="garibook"
                 className="h-7 sm:h-8 md:h-9 w-auto object-contain"
               />
             </a>

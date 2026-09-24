@@ -109,7 +109,14 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6 py-6 sm:py-8 border-t border-white/10 text-center sm:text-left">
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 flex-wrap justify-center sm:justify-start">
-            <img src="/assets/logo-white.svg" alt="Garibook" className="h-7 sm:h-8 w-auto object-contain" />
+            <a href="/" title="garibook" className="inline-flex items-center">
+              <img
+                src="/assets/logo-white.svg"
+                alt="garibook"
+                title="garibook"
+                className="h-7 sm:h-8 w-auto object-contain"
+              />
+            </a>
             <div className="flex items-center gap-4 sm:gap-6">
               <a href="#terms" className="text-white/80 hover:text-white text-xs sm:text-sm font-medium transition-colors">
                 Terms & Conditions
