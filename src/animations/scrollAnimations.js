@@ -81,27 +81,7 @@ export const initScrollAnimations = (scopeRef) => {
       );
     }
 
-    // 5. Travel Scenarios Cards
-    const travelCards = gsap.utils.toArray('.travel-scenario-card');
-    if (travelCards.length > 0) {
-      gsap.fromTo(
-        travelCards,
-        { y: 30, opacity: 0 },
-        {
-          scrollTrigger: {
-            trigger: '.travel-scenarios-grid',
-            start: 'top 88%',
-            once: true
-          },
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          stagger: 0.12,
-          ease: 'power3.out',
-          onComplete: () => gsap.set(travelCards, { clearProps: 'opacity,transform' })
-        }
-      );
-    }
+    // 5. Travel Scenarios (More Than Miles) animations are self-contained within TravelSection.jsx
 
     // 6. Smart Driver Section yellow card entrance
     const driverCard = document.querySelector('.smart-driver-card');
