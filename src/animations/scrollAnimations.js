@@ -83,27 +83,7 @@ export const initScrollAnimations = (scopeRef) => {
 
     // 5. Travel Scenarios (More Than Miles) animations are self-contained within TravelSection.jsx
 
-    // 6. Smart Driver Section yellow card entrance
-    const driverCard = document.querySelector('.smart-driver-card');
-    if (driverCard) {
-      gsap.fromTo(
-        driverCard,
-        { scale: 0.98, y: 20, opacity: 0 },
-        {
-          scrollTrigger: {
-            trigger: driverCard,
-            start: 'top 88%',
-            once: true
-          },
-          scale: 1,
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-          onComplete: () => gsap.set(driverCard, { clearProps: 'opacity,transform' })
-        }
-      );
-    }
+    // 6. Smart Driver Section animations are self-contained within DriverSection.jsx
 
     // 7. Blog Cards Stagger
     const blogCards = gsap.utils.toArray('.blog-card-item');
