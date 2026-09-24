@@ -85,27 +85,9 @@ export const initScrollAnimations = (scopeRef) => {
 
     // 6. Smart Driver Section animations are self-contained within DriverSection.jsx
 
-    // 7. Blog Cards Stagger
-    const blogCards = gsap.utils.toArray('.blog-card-item');
-    if (blogCards.length > 0) {
-      gsap.fromTo(
-        blogCards,
-        { y: 25, opacity: 0 },
-        {
-          scrollTrigger: {
-            trigger: '.blogs-grid',
-            start: 'top 88%',
-            once: true
-          },
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: 'power3.out',
-          onComplete: () => gsap.set(blogCards, { clearProps: 'opacity,transform' })
-        }
-      );
-    }
+    // 7. Blog Section (Beyond Destinations) animations are self-contained within BlogSection.jsx
+
+    // 8. App Download Banner animations are self-contained within AppDownload.jsx
   }, scopeRef);
 
   return ctx;
