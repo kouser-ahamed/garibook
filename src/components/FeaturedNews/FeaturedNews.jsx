@@ -243,7 +243,7 @@ export const FeaturedNews = () => {
       className="bg-white py-16 sm:py-24 border-t border-slate-100 overflow-hidden"
       id="featured-news"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1420px] mx-auto px-6 lg:px-8">
         {/* Header Layout */}
         <div className="flex items-end justify-between mb-10 sm:mb-14 gap-6">
           <div ref={headingRef}>

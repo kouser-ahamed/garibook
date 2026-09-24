@@ -8,7 +8,7 @@ import TravelSection from './components/TravelSection/TravelSection';
 import BookingArrivalSection from './components/BookingArrival/BookingArrivalSection';
 import DriverSection from './components/DriverSection/DriverSection';
 import FeaturedNews from './components/FeaturedNews/FeaturedNews';
-import Testimonials from './components/Testimonials/Testimonials';
+import PassengersTestimonials from './components/Testimonials/PassengersTestimonials';
 import BlogSection from './components/BlogSection/BlogSection';
 import AppDownload from './components/AppDownload/AppDownload';
 import Footer from './components/Footer/Footer';
@@ -81,10 +81,10 @@ export default function App() {
         {/* 9. We Featured by Top news Platforms */}
         <FeaturedNews />
 
-        {/* 10. Passenger Speak / Testimonials */}
-        <Testimonials />
+        {/* 10. Our Passengers Speak For Us (Video Testimonials) */}
+        <PassengersTestimonials />
 
-        {/* 10. Beyond Destinations (Blogs) */}
+        {/* 11. Beyond Destinations (Blogs) */}
         <BlogSection />
 
         {/* 11. Download App Banner */}
