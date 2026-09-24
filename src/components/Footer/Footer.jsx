@@ -6,121 +6,139 @@ export default function Footer() {
   const { columns, nrb, link3, tradeLicense, copyright } = homeData.footer;
 
   return (
-    <footer className="bg-black text-white pt-[70px] pb-10" id="footer">
+    <footer className="bg-black text-white pt-16 sm:pt-20 pb-0" id="footer">
       <div className="container">
         {/* Main 4 Columns Widget */}
-        <div className="mb-[60px]">
-          <div className="grid grid-cols-[1.2fr_1.5fr_1.8fr_1.5fr] max-[1100px]:grid-cols-2 max-md:grid-cols-1 gap-9 max-md:gap-7">
-            {columns.map((col, idx) => (
-              <div key={idx} className="flex flex-col">
-                <h6 className="text-white text-[1.35rem] font-bold font-heading mb-6 capitalize">{col.title}</h6>
-                <ul className="flex flex-col gap-3.5 list-none">
-                  {col.links.map((link, i) => (
-                    <li key={i}>
-                      <a href={link.href} className="text-[#cccccc] text-[1.05rem] leading-[1.6] transition-colors duration-250 hover:text-warning-gb">
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-12 sm:pb-16">
+          {columns.map((col, idx) => (
+            <div key={idx} className="flex flex-col">
+              <h6 className="text-white text-base lg:text-[17px] font-bold font-heading mb-5">
+                {col.title}
+              </h6>
+              <ul className="flex flex-col gap-3 list-none p-0 m-0">
+                {col.links.map((link, i) => (
+                  <li key={i}>
+                    <a
+                      href={link.href}
+                      className="text-[#cccccc] text-[14px] leading-relaxed transition-colors duration-200 hover:text-warning-gb inline-block"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Mid Row: Download App & Product/Powered Attribution */}
-        <div className="mb-[50px]">
-          <div className="grid grid-cols-[1fr_1.2fr] max-[1100px]:grid-cols-1 gap-[50px] items-center">
-            {/* Download App Mini Banner */}
-            <div>
-              <h3 className="text-[clamp(1.8rem,2.8vw,2.3rem)] font-bold font-heading text-white leading-[1.25] mb-5">
-                Download Our <br /> Garibook Mobile App
-              </h3>
-              <a href="#download-app" className="theme-primary-btn py-4 px-8 w-fit">
-                <span>Download App</span>
-                <ArrowRight size={20} className="btn-icon" />
-              </a>
-            </div>
+        {/* Mid Row: Download App & Product / Powered Attribution */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start py-10 sm:py-14 border-t border-white/10">
+          {/* Download App Mini Banner */}
+          <div className="flex flex-col items-start">
+            <h3 className="text-2xl lg:text-[28px] font-bold font-heading text-white leading-tight mb-5">
+              Download Our <br /> Garibook Mobile App
+            </h3>
+            <a
+              href="https://onelink.to/gbweb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-primary-gb hover:bg-primary-gb-hover text-white font-bold text-[15px] py-3.5 px-7 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer shadow-gb-btn"
+            >
+              <span>Download App</span>
+              <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
+            </a>
+          </div>
 
-            {/* Partner / Company Badges */}
-            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-7">
-              {/* Product By NRB */}
-              <div className="flex flex-col gap-3">
-                <h4 className="text-[1.25rem] font-bold font-heading text-white">A Product By</h4>
-                <div className="flex items-center gap-4 bg-white/[0.05] border border-white/[0.12] rounded-[14px] p-4 px-5">
-                  <img
-                    src={nrb.logo}
-                    alt={nrb.name}
-                    className="h-12 w-auto object-contain"
-                  />
-                  <div className="flex flex-col">
-                    <a
-                      href={nrb.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-1.5 text-warning-gb text-[0.95rem] font-bold mt-1 transition-transform duration-200 hover:translate-x-1"
-                    >
-                      <span>Visit Website</span>
-                      <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Powered By Link 3 */}
-              <div className="flex flex-col gap-3">
-                <h4 className="text-[1.25rem] font-bold font-heading text-white">Powered By</h4>
-                <div className="flex items-center gap-4 bg-white/[0.05] border border-white/[0.12] rounded-[14px] p-4 px-5">
-                  <img
-                    src={link3.logo}
-                    alt={link3.name}
-                    className="h-12 w-auto object-contain"
-                  />
-                  <div className="flex flex-col">
-                    <a
-                      href={link3.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-1.5 text-warning-gb text-[0.95rem] font-bold mt-1 transition-transform duration-200 hover:translate-x-1"
-                    >
-                      <span>Visit Website</span>
-                      <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
-                    </a>
-                  </div>
-                </div>
+          {/* A Product By NRB */}
+          <div className="flex flex-col items-start">
+            <h4 className="text-2xl lg:text-[28px] font-bold font-heading text-white mb-5">
+              A Product By
+            </h4>
+            <div className="flex items-center gap-4">
+              <img
+                src={nrb.logo}
+                alt={nrb.name}
+                className="h-12 sm:h-14 w-auto object-contain shrink-0"
+              />
+              <div className="flex flex-col">
+                <span className="text-white font-semibold text-base sm:text-lg leading-tight">
+                  {nrb.name}
+                </span>
+                <a
+                  href={nrb.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1.5 text-warning-gb text-[13px] sm:text-[14px] font-bold mt-1.5 hover:underline transition-colors"
+                >
+                  <span>Visit Website</span>
+                  <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
               </div>
             </div>
           </div>
-        </div>
 
-        <hr className="border-none h-px bg-white/15 mb-7.5" />
+          {/* Powered By Link 3 */}
+          <div className="flex flex-col items-start">
+            <h4 className="text-2xl lg:text-[28px] font-bold font-heading text-white mb-5">
+              Powered By
+            </h4>
+            <div className="flex items-center gap-4">
+              <img
+                src={link3.logo}
+                alt={link3.name}
+                className="h-12 sm:h-14 w-auto object-contain shrink-0"
+              />
+              <div className="flex flex-col">
+                <span className="text-white font-semibold text-base sm:text-lg leading-tight">
+                  {link3.name}
+                </span>
+                <a
+                  href={link3.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1.5 text-warning-gb text-[13px] sm:text-[14px] font-bold mt-1.5 hover:underline transition-colors"
+                >
+                  <span>Visit Website</span>
+                  <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Bottom Bar */}
-        <div className="flex items-center justify-between mb-7.5 flex-wrap gap-5 max-md:flex-col max-md:items-start">
-          <div className="flex items-center gap-9 max-md:flex-col max-md:items-start max-md:gap-4">
-            <img src="/assets/logo-white.svg" alt="Garibook" className="h-[38px] w-auto" />
-            <div className="flex items-center gap-6">
-              <a href="#terms" className="text-[#cccccc] text-[1.05rem] leading-[1.6] transition-colors duration-250 hover:text-warning-gb">Terms & Conditions</a>
-              <a href="#privacy" className="text-[#cccccc] text-[1.05rem] leading-[1.6] transition-colors duration-250 hover:text-warning-gb">Privacy Policy</a>
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 py-8 border-t border-white/10">
+          <div className="flex items-center gap-6 sm:gap-8 flex-wrap">
+            <img src="/assets/logo-white.svg" alt="Garibook" className="h-8 w-auto object-contain" />
+            <div className="flex items-center gap-5 sm:gap-6">
+              <a href="#terms" className="text-white/80 hover:text-white text-sm font-medium transition-colors">
+                Terms & Conditions
+              </a>
+              <a href="#privacy" className="text-white/80 hover:text-white text-sm font-medium transition-colors">
+                Privacy Policy
+              </a>
             </div>
           </div>
 
-          <div className="flex items-center gap-8 max-md:flex-col max-md:items-start max-md:gap-2">
-            <span className="text-[0.9rem] text-[#888888] leading-[1.4]">
-              Trade license number: <br className="hidden md:inline" /> {tradeLicense}
-            </span>
-            <p className="text-[0.95rem] text-[#aaaaaa]">{copyright}</p>
+          <div className="text-white/70 text-xs sm:text-sm text-center lg:text-left leading-relaxed">
+            Trade license number: <br className="hidden sm:inline" />
+            {tradeLicense}
+          </div>
+
+          <div className="text-white/80 text-xs sm:text-sm">
+            {copyright}
           </div>
         </div>
+      </div>
 
-        {/* SSL / Payment Methods Banner */}
-        <div className="w-full mt-5 overflow-x-auto rounded-xl">
-          <img
-            src="/assets/images/ssl_banner.svg"
-            alt="SSLCommerz Verified Payment Methods"
-            className="w-full min-w-[800px] h-auto"
-          />
-        </div>
+      {/* Very Bottom Full-Width Edge-to-Edge Payment Partner Brands Banner */}
+      <div className="w-full bg-white border-t border-slate-200 py-1.5 sm:py-2.5 overflow-x-auto scrollbar-none">
+        <img
+          src="/assets/images/ssl.png"
+          alt="Payment Methods: Visa, Mastercard, Amex, UnionPay, bKash, Nagad, Rocket, Bank Asia, EBL, MTB, SSLCommerz"
+          className="w-full min-w-[1000px] lg:min-w-full h-auto block"
+          loading="lazy"
+        />
       </div>
     </footer>
   );

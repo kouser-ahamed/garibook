@@ -480,15 +480,15 @@ export const homeData = {
     ],
     nrb: {
       name: "NRB Solution Ltd.",
-      logo: "/assets/images/nrb_logo.svg",
+      logo: "/assets/images/nrb_icon.png",
       website: "https://nrb-solutions.net/"
     },
     link3: {
-      name: "Link 3 Technologies Ltd.",
-      logo: "/assets/images/link3_logo.svg",
+      name: "Link 3 Technologies",
+      logo: "/assets/images/link3-two.png",
       website: "https://link3.net/"
     },
     tradeLicense: "TRAD/DNCC/013806/2024",
-    copyright: "© 2026 Garibook.com. All Rights Reserved."
+    copyright: "© 2026 Garibook.com"
   }
 };
